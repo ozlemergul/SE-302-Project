@@ -42,5 +42,5 @@ javafx {
 
 application {
     // Define the main class for the application.
-    mainClass = 'syllabustracker.App'
+    mainClass = 'syllabustracker.Main'
 }
