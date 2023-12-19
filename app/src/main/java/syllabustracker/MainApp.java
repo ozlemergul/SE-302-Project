@@ -2,6 +2,7 @@ package syllabustracker;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import syllabustracker.model.Assesment;
 import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
@@ -15,6 +16,10 @@ public class MainApp extends Application{
 
        Database d = new Database();
        d.connect();
+       d.insertData("assesment_2", 7,7,7,7,7,7,7,7);
+       /*d.deleteData(1,"assesment_2");*/
+       //d.displayRecords(d, "assesment_2");
+
 
 
     }
