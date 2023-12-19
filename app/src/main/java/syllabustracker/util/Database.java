@@ -106,13 +106,32 @@ public class Database {
         }
     }
 
-    public void deleteData(int id, String tableName) {
+    // This method deletes the whole table, I am not sure that we need it.
+
+    /*public void deleteTheTable(int id, String tableName) {
         try {
             // Build the SQL query dynamically based on the table name, ID column, and ID value
-            String deleteQuery = "DELETE FROM " + tableName + " WHERE " + id + " = ?";
+            String deleteQuery = "DELETE FROM " + tableName + " WHERE id = " +id;
 
             // Execute the delete query with the provided ID
             try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
+                preparedStatement.setInt(1, id);
+                preparedStatement.executeUpdate();
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }*/
+
+
+    public void deleteColumnData(int id, String columnName, String tableName) {
+        try {
+            // Build the SQL query dynamically based on the table name, column name, ID column, and ID value
+            String deleteColumnQuery = "UPDATE " + tableName + " SET " + columnName + " = NULL WHERE id = ?";
+
+            // Execute the update query with the provided ID
+            try (PreparedStatement preparedStatement = connection.prepareStatement(deleteColumnQuery)) {
                 preparedStatement.setInt(1, id);
                 preparedStatement.executeUpdate();
             }
@@ -124,7 +143,7 @@ public class Database {
 
 
 
-    public List<Map<String, Object>> displayRecords(String tableName) {
+    public void displayRecords(String tableName) {
         List<Map<String, Object>> records = new ArrayList<>();
 
         try {
@@ -132,31 +151,31 @@ public class Database {
             String selectQuery = "SELECT * FROM " + tableName;
 
             // Execute the query
-            try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
-                 ResultSet resultSet = preparedStatement.executeQuery()) {
+            try(PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+                 ResultSet resultSet = preparedStatement.executeQuery()){
 
                 // Process the result set
                 ResultSetMetaData metaData = resultSet.getMetaData();
                 int columnCount = metaData.getColumnCount();
-                Map<String, Object> record = new HashMap<>();
-                while (resultSet.next()) {
 
+                while (resultSet.next()) {
+                    Map<String, Object> record = new HashMap<>();
 
                     // Populate the record map with column names and values
                     for (int i = 1; i <= columnCount; i++) {
                         String columnName = metaData.getColumnName(i);
                         Object columnValue = resultSet.getObject(i);
                         record.put(columnName, columnValue);
+                    }records.add(record);
+                    System.out.println();
+                }
 
-                    }
-
-                } records.add(record);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return records;
+        System.out.println(records);
     }
 }

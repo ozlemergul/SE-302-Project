@@ -17,8 +17,10 @@ public class MainApp extends Application{
        Database d = new Database();
        d.connect();
 
-       d.insertData("assesment_2",7,7,7,7,7,7,7,7);
-       System.out.println(d.displayRecords("assesment_2"));
+       //d.insertData("assesment_2",1,1,1,1,1,1,1,1);
+
+       //d.deleteColumnData(1,"number","assesment_2");
+       d.displayRecords("assesment_2");
 
 
     }
