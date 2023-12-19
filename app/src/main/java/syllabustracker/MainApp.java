@@ -1,22 +1,22 @@
 package syllabustracker;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
+import syllabustracker.util.PageLoader;
 
-public class Main extends Application{
+public class MainApp extends Application{
     
 
     public static void main(String[] args) {
        launch(args);
     }
 
-    public String getGreeting() {
-        return "Hello World";
-    }
-
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+        PageLoader.loadPage("/MainPage.fxml", primaryStage);
     }
+
+    
 
    
     
