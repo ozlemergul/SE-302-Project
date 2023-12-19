@@ -4,21 +4,19 @@ import java.sql.*;
 
 public class Database {
 
-
     private Connection connection;
 
     public Database() {
-
         this.connection = null;
     }
 
     public void connect() {
 
         try {
-            String url = "jdbc:sqlite:D:/SE302Project/app/syllabusTracker_DB.db";
+            String url = "jdbc:sqlite:/syllabusTracker_DB.db";
             // Connect to the database (creates a new file if not exists)
             connection = DriverManager.getConnection(url);
-            System.out.println("Connection succesfull");
+            System.out.println("Connection successfull");
 
         } catch (SQLException e) {
             e.printStackTrace();
