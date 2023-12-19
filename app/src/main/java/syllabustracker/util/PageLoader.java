@@ -21,9 +21,8 @@ public class PageLoader {
             primaryStage.setScene(scene);
 
             // Set Controller
-            //PageController controller = loader.getController();
-            //System.out.println(loader.getController().toString());
-            //controller.setPrimaryStage(primaryStage);
+            PageController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage);
 
             // Show Page
             primaryStage.show();
@@ -32,4 +31,6 @@ public class PageLoader {
             e.printStackTrace();
         }
     }
+
+    
 }
