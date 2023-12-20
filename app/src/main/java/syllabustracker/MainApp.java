@@ -5,7 +5,6 @@ import javafx.stage.Stage;
 import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
-import java.sql.ResultSet;
 
 public class MainApp extends Application{
     
