@@ -8,9 +8,15 @@ import syllabustracker.MainApp;
 import syllabustracker.controller.PageController;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Stack;
 
 public class PageLoader {
-    
+
+    private static HashMap<String, Stage> openPages = new HashMap<>();
+    private static final Stack<Scene> sceneStack = new Stack<>();
+
+
     public static void loadPage(String fxmlFileName, Stage primaryStage){
 
         try{
@@ -18,6 +24,11 @@ public class PageLoader {
             FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
             Parent root = loader.load();
             Scene scene = new Scene(root);
+
+            if (primaryStage.getScene() != null) {
+                sceneStack.push(primaryStage.getScene());
+            }
+
             primaryStage.setScene(scene);
 
             // Set Controller
@@ -31,6 +42,48 @@ public class PageLoader {
             e.printStackTrace();
         }
     }
+
+
+    public static void showAnotherPage(String fxmlFileName) {
+
+        try{
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+            Stage newStage = new Stage();
+            newStage.setScene(scene);
+
+            // Set Controller
+            PageController controller = loader.getController();
+            controller.setPrimaryStage(newStage);
+
+            // Add the new stage to the openPages map
+            openPages.put(fxmlFileName, newStage);
+
+            // Show Page
+            newStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void closePage(String fxmlFileName) {
+        if (openPages.containsKey(fxmlFileName)) {
+            Stage stage = openPages.get(fxmlFileName);
+            stage.close();
+            openPages.remove(fxmlFileName);
+        }
+    }
+
+    public static void goPreviousPage(Stage primaryStage) {
+        if (!sceneStack.isEmpty()) {
+            Scene previousScene = sceneStack.pop();
+            primaryStage.setScene(previousScene);
+        }
+    }
+
+
 
     
 }

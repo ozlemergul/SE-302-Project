@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="334.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.CourseNameSelectionController">
+   <children>
+      <VBox layoutX="19.0" layoutY="9.0" prefHeight="180.0" prefWidth="294.0">
+         <children>
+            <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Course Name:" wrappingWidth="256.8000545501709">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Separator orientation="VERTICAL" prefHeight="10.0" visible="false" />
+            <TextArea fx:id="courseName" prefHeight="44.0" prefWidth="294.0" />
+            <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
+            <HBox alignment="TOP_RIGHT" prefHeight="35.0" prefWidth="463.0">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#saveButton" prefHeight="30.0" prefWidth="70.0" text="Save" textAlignment="CENTER" />
+                  <Separator prefWidth="20.0" visible="false" />
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#cancelButton" prefHeight="30.0" prefWidth="70.0" text="Cancel" textAlignment="CENTER" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

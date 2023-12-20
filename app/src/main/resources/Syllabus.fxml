@@ -1,0 +1,1850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.SyllabusController">
+   <content>
+      <AnchorPane layoutX="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6000.0" prefWidth="731.0">
+         <children>
+            <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="745.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Import" />
+                        <MenuItem mnemonicParsing="false" text="Export" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As..." />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Options">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Edit Syllabus" />
+                        <MenuItem mnemonicParsing="false" text="Compare Syllabuses" />
+                        <MenuItem mnemonicParsing="false" text="View Old Versions" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <VBox layoutX="52.0" layoutY="62.0" prefHeight="6000.0" prefWidth="626.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="626.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="About Syllabus" textAlignment="CENTER" />
+                        <Separator prefWidth="25.0" visible="false" />
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Edit Syllabus" textAlignment="CENTER" />
+                        <Separator prefWidth="25.0" visible="false" />
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Compare Syllabuses" textAlignment="CENTER" />
+                        <Separator prefWidth="25.0" visible="false" />
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Old Versions" textAlignment="CENTER" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="35.0" visible="false" />
+                  <HBox prefHeight="54.0" prefWidth="626.0">
+                     <children>
+                        <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="457.0" text="Course Name">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField alignment="CENTER" prefHeight="54.0" prefWidth="573.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font></TextField>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="25.0" visible="false" />
+                  <VBox prefHeight="99.0" prefWidth="626.0">
+                     <children>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="95.0" text="Code">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="95.0" text="Semester">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefColumnCount="2" prefHeight="54.0" prefWidth="125.0" text="Theory">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="125.0" text="Application/Lab">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="113.0" text="Local Credits">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="70.0" text="ECTS">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="45.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" prefHeight="54.0" prefWidth="95.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="54.0" prefWidth="95.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefColumnCount="2" prefHeight="54.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="54.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="54.0" prefWidth="113.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="54.0" prefWidth="70.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
+                  <VBox prefHeight="500.0" prefWidth="626.0">
+                     <children>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Prerequisities">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Course Language">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Course Type">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Course Level">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Mode of Delivery">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="65.0" prefWidth="626.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="65.0" prefWidth="350.0" style="-fx-background-color: white; -fx-border-color: silver; -fx-border-radius: 3;">
+                                 <children>
+                                    <Text fill="#000000df" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Teaching Methods and Techniques of the Course" textAlignment="CENTER" wrappingWidth="197.33673095703125">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Course Coordinator">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Course Lecturer(s)">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Assistant(s)">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="25.0" visible="false" />
+                  <HBox prefHeight="120.0" prefWidth="626.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Course &#10;Objectives">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="626.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Learning &#10;Outcomes">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="626.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Course &#10;Description">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="40.0" visible="false" />
+                  <HBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField alignment="CENTER" prefHeight="200.0" prefWidth="150.0" text="Course Category">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <HBox prefHeight="200.0" prefWidth="430.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="430.0">
+                                 <children>
+                                    <TextField maxHeight="40.0" minHeight="40.0" text="Core Courses">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField maxHeight="40.0" minHeight="40.0" text="Major Area Courses">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField maxHeight="40.0" minHeight="40.0" text="Supportive Courses">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField maxHeight="40.0" minHeight="40.0" text="Media and Management Skills Courses">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField maxHeight="40.0" minHeight="40.0" text="Transferable Skill Courses">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="70.0">
+                           <children>
+                              <Pane prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" right="35.0" top="20.0" />
+                                 </padding>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="726.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WEEKLY SUBJECTS AND RELATED PREPARATION STUDIES" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="200.0" prefWidth="60.0" text="Week">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="376.0" text="Subjects">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="50.0" prefWidth="200.0" text="Related Preparation">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="4">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="6">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="7">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="8">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="9">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="10">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="11">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="12">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="13">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="14">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="15">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="16">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
+                  <VBox prefHeight="230.0" prefWidth="626.0">
+                     <children>
+                        <HBox prefHeight="150.0" prefWidth="626.0">
+                           <children>
+                              <TextArea editable="false" prefHeight="150.0" prefWidth="350.0" text="Course &#10;Objectives">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextArea>
+                              <TextArea prefHeight="150.0" prefWidth="573.0" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="80.0" prefWidth="626.0">
+                           <children>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Suggested &#10;Readings /Materials">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextArea>
+                              <TextArea prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="740.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="EVALUATION SYSTEM" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Semester Activities ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="120.0" text="Number">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="120.0" text="Weigthing">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Participation">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Laboratory / Application">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Field Work">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Quizzes / Studio Critiques">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Portfolio">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Homework / Assignments">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Presentation / Jury">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Project">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Seminar / Workshop">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Oral Exams">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Midterm">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Final Exam">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="386.0" text="Total">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Weighting of Semester Activities on the Final Grade">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Weighting of End-of-Semester Activities on the Final Grade">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="386.0" text="Total">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="636.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ECTS / WORKLOAD TABLE" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Semester Activities ">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="120.0" text="Number">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="120.0" text="Duration">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="120.0" text="Workload">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Theoretical Course Hours">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Laboratory / Application Hours">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Study Hours Out of Class">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Field Work">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Quizzes / Studio Critiques">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Portfolio">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Homework / Assignments">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Presentation / Jury">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Project">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Seminar / Workshop">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Oral Exam">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Midterms">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Final Exam">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="386.0">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="120.0" text="Total">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="1500.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COURSE LEARNING OUTCOMES AND PROGRAM QUALIFICATIONS RELATIONSHIP" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="#">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" text="Program Competencies/Outcomes">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextArea>
+                              <VBox prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <TextArea editable="false" prefHeight="110.0" prefWidth="200.0" text="*Contribution&#10;Level">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextArea>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="70.0" text="1">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" text="2">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" text="3">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" text="4">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" text="5">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="4">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="6">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="7">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="8">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="9">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="10">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="11">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="12">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="13">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea prefHeight="200.0" prefWidth="386.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*1 Lowest, 2 Low, 3 Average, 4 High, 5 Highest" textAlignment="RIGHT" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
