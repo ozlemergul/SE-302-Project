@@ -23,7 +23,7 @@ public class CourseNameSelectionController implements PageController{
 
 
     public void cancelButton (ActionEvent event) {
-        PageLoader.goPreviousPage(primaryStage);
+        PageLoader.closePage("/CourseNameSelection.fxml");
 
     }
 
