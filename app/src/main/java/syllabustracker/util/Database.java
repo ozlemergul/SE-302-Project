@@ -1,6 +1,10 @@
 package syllabustracker.util;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Database {
 
@@ -15,7 +19,7 @@ public class Database {
     public void connect() {
 
         try {
-            String url = "jdbc:sqlite:/syllabusTracker_DB.db";
+            String url = "jdbc:sqlite:syllabusTracker_DB.db";
             // Connect to the database (creates a new file if not exists)
             connection = DriverManager.getConnection(url);
             System.out.println("Connection succesfull");
@@ -58,28 +62,6 @@ public class Database {
         return null;
     }
 
-    public ResultSet fetchData(String query, Object... params) {
-        if (connection == null) {
-            connect();
-        }
-
-        try {
-            PreparedStatement statement = connection.prepareStatement(query);
-
-            // Set parameters, if any
-            int parameterIndex = 1;
-            for (Object param : params) {
-                statement.setObject(parameterIndex++, param);
-            }
-
-            // Execute the query and return the result set
-            return statement.executeQuery();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     public void close() {
         disconnect();
@@ -95,6 +77,7 @@ public class Database {
             e.printStackTrace();
         }
     }
+
     public void insertData(String tableName, Object... columnValues) {
         try {
             // Build the SQL query dynamically based on the table name and provided column values
@@ -125,16 +108,14 @@ public class Database {
         }
     }
 
-    public void deleteData(int id,String tableName) {
+    public void deleteData(int id, String tableName) {
         try {
-            // Specify the SQL query to delete data from the table
-            String deleteQuery = "DELETE FROM "+tableName+" WHERE id = ?";
+            // Build the SQL query dynamically based on the table name, ID column, and ID value
+            String deleteQuery = "DELETE FROM " + tableName + " WHERE " + id + " = ?";
 
-            // Create a PreparedStatement to execute the delete query
+            // Execute the delete query with the provided ID
             try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
                 preparedStatement.setInt(1, id);
-
-                // Execute the delete query
                 preparedStatement.executeUpdate();
             }
 
@@ -143,28 +124,41 @@ public class Database {
         }
     }
 
-    public void displayRecords(Database databaseHandler,String tableName) {
-        // Specify the SQL query to select data from the table
-        String selectQuery = "SELECT * FROM "+tableName;
 
 
-        // Execute the query using the DatabaseHandler
-        ResultSet resultSet = databaseHandler.executeQuery(selectQuery);
+    public List<Map<String, Object>> displayRecords(String tableName) {
+        List<Map<String, Object>> records = new ArrayList<>();
 
-        // Process the result set
-        if (resultSet != null) {
-            try {
+        try {
+            // Build the SQL query dynamically based on the table name
+            String selectQuery = "SELECT * FROM " + tableName;
+
+            // Execute the query
+            try (PreparedStatement preparedStatement = connection.prepareStatement(selectQuery);
+                 ResultSet resultSet = preparedStatement.executeQuery()) {
+
+                // Process the result set
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                Map<String, Object> record = new HashMap<>();
                 while (resultSet.next()) {
-                    int id = resultSet.getInt("id");
-                    String column1 = resultSet.getString("column1");
-                    String column2 = resultSet.getString("column2");
 
-                    // Print or process the retrieved data
-                    System.out.println("ID: " + id + ", Column1: " + column1 + ", Column2: " + column2);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+
+                    // Populate the record map with column names and values
+                    for (int i = 1; i <= columnCount; i++) {
+                        String columnName = metaData.getColumnName(i);
+                        Object columnValue = resultSet.getObject(i);
+                        record.put(columnName, columnValue);
+
+                    }
+
+                } records.add(record);
             }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
+        return records;
     }
 }
