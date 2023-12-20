@@ -15,8 +15,6 @@ public class MainApp extends Application{
        Database d = new Database();
        d.connect();
        launch(args);
-    
-
     }
 
     @Override

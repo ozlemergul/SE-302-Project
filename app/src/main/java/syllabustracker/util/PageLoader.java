@@ -14,7 +14,7 @@ import java.util.Stack;
 public class PageLoader {
 
     private static HashMap<String, Stage> openPages = new HashMap<>();
-    private static final Stack<Scene> sceneStack = new Stack<>();
+    private static Stack<Scene> sceneStack = new Stack<>();
 
 
     public static void loadPage(String fxmlFileName, Stage primaryStage){
