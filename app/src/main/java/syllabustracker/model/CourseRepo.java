@@ -20,10 +20,12 @@ public class CourseRepo {
         this.courseIDs = courseIDs;
     }
 
-    public void takeCourses(Database db){
+    public void takeCourseIDs(Database db){
         final String query = "SELECT course_id FROM course;";
 
-        db.connect();
+        if(db.getConnection() == null){
+            db.connect();
+        }
         
         try (ResultSet resultSet = db.executeQuery(query)) {
             while (resultSet.next()) {

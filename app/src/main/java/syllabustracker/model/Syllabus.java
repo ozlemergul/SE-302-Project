@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Syllabus {
 
 
-    private double version;
+    private String syllabusID;
     private GeneralInfo generalInfo;
     private WeeklySubjects weeklySubjects;
     private Assesment assesment;
@@ -13,10 +13,10 @@ public class Syllabus {
     private ArrayList<Work> workLoad = new ArrayList<>();
 
 
-    public Syllabus(double version, GeneralInfo generalInfo, WeeklySubjects weeklySubjects, Assesment assesment,
+    public Syllabus(String syllabusID, GeneralInfo generalInfo, WeeklySubjects weeklySubjects, Assesment assesment,
             syllabustracker.model.OutcomeMatrix outcomeMatrix, ArrayList<Work> workLoad) {
                 
-        this.version = version;
+        this.syllabusID = syllabusID;
         this.generalInfo = generalInfo;
         this.weeklySubjects = weeklySubjects;
         this.assesment = assesment;

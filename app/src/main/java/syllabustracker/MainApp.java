@@ -12,14 +12,11 @@ public class MainApp extends Application{
 
     public static void main(String[] args) {
 
-
        Database d = new Database();
        d.connect();
        
-       CourseRepo courseRepo = new CourseRepo();
-       courseRepo.takeCourses(d);
 
-       //launch(args);
+       launch(args);
     }
 
     @Override
