@@ -7,33 +7,22 @@ import java.util.List;
 import java.util.Map;
 
 public class Database {
-    private boolean isConnected;
     private Connection connection;
 
     public Database() {
         this.connection = null;
-        this.isConnected = false;
     }
-
-    public Connection getConnection() {
-        return connection;
-    }
-
-    public boolean isConnected() {
-        return connection != null;
-    }
-
+    
     public void connect() {
         try {
             String url = "jdbc:sqlite:syllabusTracker_DB.db";
             connection = DriverManager.getConnection(url);
-            isConnected = true; // Set isConnected to true upon successful connection
-            System.out.println("Connection successful");
+            System.out.println("Connection succesfull");
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-
 
     private void disconnect() {
         try {
@@ -49,24 +38,28 @@ public class Database {
         disconnect();
     }
 
-    public ResultSet executeQuery(String query, List<Object> params) {
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            
-            int index = 1;
-            for (Object param : params) {
-                preparedStatement.setObject(index++, param);
+    public ResultSet executeQuery(String query, Object... params) {
+        if (connection == null) {
+            connect();
+        }
+    
+        try (PreparedStatement statement = connection.prepareStatement(query)) {
+            // Set parameters, if any
+            for (int i = 0; i < params.length; i++) {
+                statement.setObject(i + 1, params[i]);
             }
-
-            return preparedStatement.executeQuery();
-
+    
+            // Execute the query
+            return statement.executeQuery();
+    
         } catch (SQLException e) {
             e.printStackTrace();
-            return null; 
         }
+    
+        return null;
     }
-
-
+    
+    
 
     public void insertData(String tableName, Object... columnValues) {
         try {
@@ -175,3 +168,6 @@ public class Database {
 
     
 }
+                
+    
+
