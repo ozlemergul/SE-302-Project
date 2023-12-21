@@ -3,6 +3,7 @@ package syllabustracker.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import syllabustracker.util.Database;
 
@@ -20,12 +21,15 @@ public class CourseRepo {
         this.courseIDs = courseIDs;
     }
 
-    public void takeCourseIDs(Database db){
+    public void takeCourses(Database db) {
+        if (db == null || !db.isConnected()) {
+            System.out.println("Database is not connected.");
+            return;
+        }
+
         final String query = "SELECT course_id FROM course;";
 
-        if(db.getConnection() == null){
-            db.connect();
-        }
+        db.connect();
         
         try (ResultSet resultSet = db.executeQuery(query)) {
             while (resultSet.next()) {
@@ -35,12 +39,13 @@ public class CourseRepo {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            db.close();
         }
-
     }
 
-    
-    
 
-    
+
+
+
 }
