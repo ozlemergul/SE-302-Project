@@ -2,6 +2,7 @@ package syllabustracker;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import syllabustracker.model.CourseRepo;
 import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
@@ -14,7 +15,11 @@ public class MainApp extends Application{
 
        Database d = new Database();
        d.connect();
-       launch(args);
+       
+       CourseRepo courseRepo = new CourseRepo();
+       courseRepo.takeCourses(d);
+
+       //launch(args);
     }
 
     @Override

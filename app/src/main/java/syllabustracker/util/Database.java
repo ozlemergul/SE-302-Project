@@ -13,6 +13,10 @@ public class Database {
         this.connection = null;
     }
 
+    public Connection getConnection() {
+        return connection;
+    }
+    
     public void connect() {
         try {
             String url = "jdbc:sqlite:syllabusTracker_DB.db";
@@ -45,14 +49,12 @@ public class Database {
     
         try (PreparedStatement statement = connection.prepareStatement(query)) {
             // Set parameters, if any
-            int parameterIndex = 1;
-            for (Object param : params) {
-                statement.setObject(parameterIndex++, param);
+            for (int i = 0; i < params.length; i++) {
+                statement.setObject(i + 1, params[i]);
             }
     
             // Execute the query
-            ResultSet resultSet = statement.executeQuery();
-            return resultSet;
+            return statement.executeQuery();
     
         } catch (SQLException e) {
             e.printStackTrace();
@@ -60,6 +62,8 @@ public class Database {
     
         return null;
     }
+    
+    
 
     public void insertData(String tableName, Object... columnValues) {
         try {
@@ -164,6 +168,9 @@ public class Database {
                         
 
     }
+
+
+    
 }
                 
     

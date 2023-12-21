@@ -19,8 +19,6 @@ public class CoursesPageController implements PageController{
     @Override
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        
-
     }
 
     @FXML
@@ -32,6 +30,8 @@ public class CoursesPageController implements PageController{
         Button newButton = new Button(name);
         coursesBox.getChildren().add(newButton);
     }
+
+
 
 
 
