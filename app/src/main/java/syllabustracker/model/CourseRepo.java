@@ -10,7 +10,6 @@ import syllabustracker.util.Database;
 public class CourseRepo {
 
     private ArrayList<Course> courses = new ArrayList<>();
-
     private ArrayList<String> courseIDs = new ArrayList<>();
 
     public ArrayList<String> getCourseIDs() {
@@ -28,22 +27,18 @@ public class CourseRepo {
 
         db.connect();
         db.insertData("course", courseName,courseID);
-        takeCourses(db);
+        takeCourseIDs(db);
 
     }
 
-    public void takeCourses(Database db) {
-
-        if (db == null || !db.isConnected()) {
-            System.out.println("Database is not connected.");
-            return;
-        }
-
+    
+    
+    public void takeCourseIDs(Database db){
         final String query = "SELECT code FROM course;";
-
         db.connect();
         
         try (ResultSet resultSet = db.executeQuery(query,new ArrayList<>())) {
+        
             while (resultSet.next()) {
                 String courseId = resultSet.getString(1);
                 courseIDs.add(courseId);
@@ -51,13 +46,15 @@ public class CourseRepo {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            db.close();
         }
+        
     }
 
 
+   
 
+    
+    
 
-
+    
 }
