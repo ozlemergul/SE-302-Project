@@ -13,7 +13,7 @@ public class CoursesPageController implements PageController{
     private Stage primaryStage;
 
     @FXML
-    public VBox coursesBox = new VBox();
+    public VBox coursesBox;
     
 
     @Override

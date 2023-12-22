@@ -18,6 +18,9 @@ public class EditSyllabusController implements PageController{
     @FXML
     private TextField courseID;
 
+    @FXML
+    private TextField semester;
+
 
 
 
@@ -37,7 +40,10 @@ public class EditSyllabusController implements PageController{
 
         try {
             String courseNameF = courseName.getText();
+            
             String courseIDF = courseID.getText();
+
+            int courseSemester = Integer.parseInt(semester.getText());
         } catch(Exception e) {
             
         }

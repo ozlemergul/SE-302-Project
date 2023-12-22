@@ -142,7 +142,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                              <TextArea fx:id="prereqs" prefHeight="200.0" prefWidth="573.0" wrapText="true">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -156,7 +156,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="language" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -166,7 +166,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="type" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -176,7 +176,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="level" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -186,7 +186,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="delivery" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="65.0" prefWidth="626.0">
@@ -200,7 +200,7 @@
                                     </Text>
                                  </children>
                               </VBox>
-                              <TextArea prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="methods" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">

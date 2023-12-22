@@ -3,7 +3,7 @@ package syllabustracker.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import syllabustracker.util.Database;
 
@@ -21,17 +21,29 @@ public class CourseRepo {
         this.courseIDs = courseIDs;
     }
 
+    public void createCourse(String courseName, String courseID, Database db){
+
+        Course newCourse = new Course(courseID, courseName, new ArrayList<Syllabus>(), new ArrayList<ChangeLog>());
+        courses.add(newCourse);
+
+        db.connect();
+        db.insertData("course", courseName,courseID);
+        takeCourses(db);
+
+    }
+
     public void takeCourses(Database db) {
+
         if (db == null || !db.isConnected()) {
             System.out.println("Database is not connected.");
             return;
         }
 
-        final String query = "SELECT course_id FROM course;";
+        final String query = "SELECT code FROM course;";
 
         db.connect();
         
-        try (ResultSet resultSet = db.executeQuery(query)) {
+        try (ResultSet resultSet = db.executeQuery(query,new ArrayList<>())) {
             while (resultSet.next()) {
                 String courseId = resultSet.getString(1);
                 courseIDs.add(courseId);

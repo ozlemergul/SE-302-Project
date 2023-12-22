@@ -34,17 +34,14 @@ public class Course {
 
 
 
-      Syllabus newSyllabus = new Syllabus("test",generalInfo,weeklySubjects,assesment,outcomeMatrix,works);
+      Syllabus newSyllabus = new Syllabus(getSyllabusID(syllabi.size()),generalInfo,weeklySubjects,assesment,outcomeMatrix,works);
       syllabi.add(newSyllabus);
       
    }
 
    
-   
-
-   private String syllabusID(int versionNo){
+   private String getSyllabusID(int versionNo){
       return courseID + "V" + versionNo;
-
    }
      
 }

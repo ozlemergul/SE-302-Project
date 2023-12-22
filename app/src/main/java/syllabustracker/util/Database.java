@@ -98,26 +98,6 @@ public class Database {
         }
     }
     
-
-    // This method deletes the whole table, I am not sure that we need it.
-
-    /*public void deleteTheTable(int id, String tableName) {
-                            try {
-                                // Build the SQL query dynamically based on the table name, ID column, and ID value
-                                String deleteQuery = "DELETE FROM " + tableName + " WHERE id = " +id;
-
-                                // Execute the delete query with the provided ID
-                                try (PreparedStatement preparedStatement = connection.prepareStatement(deleteQuery)) {
-                                    preparedStatement.setInt(1, id);
-                                    preparedStatement.executeUpdate();
-                                }
-
-                            } catch (SQLException e) {
-                                e.printStackTrace();
-                            }
-                        }*/
-
-
     public void deleteColumnData(int id, String columnName, String tableName) {
                             try {
                                 // Build the SQL query dynamically based on the table name, column name, ID column, and ID value
@@ -164,14 +144,10 @@ public class Database {
                     }
 
                 }
-
+                
             } catch (SQLException e) {
                 e.printStackTrace();
-        }
-                        
+        }                
 
     }
-
-
-    
 }
