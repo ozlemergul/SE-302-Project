@@ -48,7 +48,10 @@
       </HBox>
       <ScrollPane layoutX="66.0" layoutY="90.0" prefHeight="278.0" prefWidth="466.0">
          <content>
-            <VBox fx:id="coursesBox" prefHeight="280.0" prefWidth="450.0" />
+            <VBox fx:id="coursesBox" prefHeight="280.0" prefWidth="450.0" spacing="10.0">
+               <padding>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </padding></VBox>
          </content></ScrollPane>
    </children>
 </AnchorPane>

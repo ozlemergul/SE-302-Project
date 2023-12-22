@@ -7,11 +7,14 @@ import java.util.List;
 import java.util.Map;
 
 public class Database {
+    
     private Connection connection;
 
     public Database() {
         this.connection = null;
     }
+
+    
     
     public void connect() {
         try {
@@ -48,7 +51,6 @@ public class Database {
             for (int i = 0; i < params.length; i++) {
                 statement.setObject(i + 1, params[i]);
             }
-    
             // Execute the query
             return statement.executeQuery();
     
@@ -62,6 +64,7 @@ public class Database {
     
 
     public void insertData(String tableName, Object... columnValues) {
+
         try {
             // Build the SQL query dynamically based on the table name and provided column values
             StringBuilder insertQuery = new StringBuilder("INSERT INTO ")
@@ -142,6 +145,12 @@ public class Database {
                 e.printStackTrace();
         }                
 
+    }
+
+
+
+    public Connection getConnection() {
+        return connection;
     }
 }
                 

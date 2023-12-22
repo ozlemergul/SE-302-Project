@@ -13,6 +13,23 @@ public class Activity {
         this.weighting = weighting;
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+
+    public int getNumber() {
+        return number;
+    }
+
+
+    public int getWeighting() {
+        return weighting;
+    }
+
+    
+
     
     
 }

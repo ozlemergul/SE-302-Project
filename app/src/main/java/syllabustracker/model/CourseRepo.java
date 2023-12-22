@@ -3,8 +3,6 @@ package syllabustracker.model;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-
 import syllabustracker.util.Database;
 
 public class CourseRepo {
@@ -26,7 +24,7 @@ public class CourseRepo {
         courses.add(newCourse);
 
         db.connect();
-        db.insertData("course", courseName,courseID);
+        db.insertData("course",courseName,courseID);
         takeCourseIDs(db);
 
     }
@@ -42,7 +40,6 @@ public class CourseRepo {
             while (resultSet.next()) {
                 String courseId = resultSet.getString(1);
                 courseIDs.add(courseId);
-                System.out.println(courseId);
             }
         } catch (SQLException e) {
             e.printStackTrace();

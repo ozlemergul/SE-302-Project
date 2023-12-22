@@ -2,6 +2,8 @@ package syllabustracker.model;
 
 import java.util.ArrayList;
 
+import syllabustracker.util.Database;
+
 public class Syllabus {
 
 
@@ -22,6 +24,17 @@ public class Syllabus {
         this.assesment = assesment;
         this.OutcomeMatrix = outcomeMatrix;
         this.workLoad = workLoad;
+    }
+
+    public void insertWorkLoad(Database db) {
+
+        db.connect();
+
+        for(int i=0; i<workLoad.size(); i++){
+            db.insertData(syllabusID,workLoad.get(i).getName(),workLoad.get(i).getNumber(),workLoad.get(i).getDuration(),workLoad.get(i).getLoad());
+        }
+
+        
     }
 
     
