@@ -1,6 +1,8 @@
 package syllabustracker.controller;
 
 
+import java.util.ArrayList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -9,6 +11,17 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import syllabustracker.model.Assesment;
+import syllabustracker.model.Course;
+import syllabustracker.model.CourseRepo;
+import syllabustracker.model.GeneralInfo;
+import syllabustracker.model.OutcomeMatrix;
+import syllabustracker.model.Syllabus;
+import syllabustracker.model.WeeklySubjects;
+import syllabustracker.model.Work;
+import syllabustracker.model.enums.CourseType;
+import syllabustracker.model.enums.Language;
+import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
 public class CreateSyllabusController implements PageController{
@@ -648,21 +661,144 @@ public class CreateSyllabusController implements PageController{
         PageLoader.goPreviousPage(primaryStage);
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 
     @FXML
     public void saveSyllabus(ActionEvent event) {
 
-        try {
-            String courseNameF = courseName.getText();
-
-            String courseIDF = courseID.getText();
-
-            //TODO: get text kullanılamıyor choicebox
-            //int courseSemester = Integer.parseInt(semester.getText());
-        } catch(Exception e) {
-
+        // Database connection
+        Database db = new Database();
+        if(db.getConnection() == null){
+            db.connect();
         }
+
+        //Create a new course
+        CourseRepo courseRepo = new CourseRepo();
+        Course newCourse = courseRepo.createCourse(courseName.getText(), courseID.getText(), db);
+
+        
+
+
+        // First syllabus version create
+
+        // General Info create
+        GeneralInfo generalInfo = new GeneralInfo(courseID.getText(), semester.getValue(), Integer.parseInt(theoryHours.getText()), Integer.parseInt(applicationHours.getText()), Integer.parseInt(localCredits.getText()), Integer.parseInt(ects.getText()), prereqs.getText(),courseLanguage.getValue(), courseType.getValue(),courseLevel.getValue(), methods.getText(), coordinator.getText(), null, null, null, null, null, null)
+        
+        // 
+        WeeklySubjects weeklySubjects = new WeeklySubjects(null, null, null);
+        Assesment assesment = new Assesment(null, 0, 0, 0, courseID);
+        OutcomeMatrix outcomeMatrix = new OutcomeMatrix(null, null);
+        ArrayList<Work> works = new ArrayList<>();
+
+     
+        Syllabus newSyllabus = new Syllabus(getSyllabusID(syllabi.size()),generalInfo,weeklySubjects,assesment,outcomeMatrix,works);
+        syllabi.add(newSyllabus);
+
+
+
+
         //PageLoader.showAnotherPage("/SavingScreen.fxml");
     }
 

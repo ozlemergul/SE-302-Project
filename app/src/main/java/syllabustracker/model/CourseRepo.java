@@ -31,6 +31,7 @@ public class CourseRepo {
             db.connect();
         }
         db.insertData("course",courseName,courseID);
+        
         // Update courseIDs
         readCourseIDs(db);
 
