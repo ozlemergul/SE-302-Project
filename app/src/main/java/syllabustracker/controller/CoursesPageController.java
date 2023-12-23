@@ -25,6 +25,7 @@ public class CoursesPageController implements PageController,Initializable{
     public void initialize(URL location, ResourceBundle resources) {
 
         System.out.println("Hello");
+
         Database db = new Database();
         if(db.getConnection() == null){
             db.connect();
@@ -32,12 +33,6 @@ public class CoursesPageController implements PageController,Initializable{
 
         CourseRepo courseRepo = new CourseRepo();
         courseRepo.takeCourseIDs(db);
-        System.out.println(courseRepo.getCourseIDs().get(0));
-        
-
-        Button testbutton = new Button("Test");
-        
-        coursesBox.getChildren().add(testbutton);
 
         for (String courseName : courseRepo.getCourseIDs()) {
             Button button = new Button(courseName);
@@ -53,11 +48,6 @@ public class CoursesPageController implements PageController,Initializable{
     @FXML
     public void addNewCourseButton (ActionEvent event) {
         PageLoader.loadPage("/EditSyllabus.fxml", primaryStage);
-    }
-
-    public void addNewButton(VBox vBox, String name) {
-        Button newButton = new Button(name);
-        coursesBox.getChildren().add(newButton);
     }
 
 

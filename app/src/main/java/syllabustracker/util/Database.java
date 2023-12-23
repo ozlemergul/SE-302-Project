@@ -14,8 +14,14 @@ public class Database {
         this.connection = null;
     }
 
-    
-    
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+
     public void connect() {
         try {
             String url = "jdbc:sqlite:syllabusTracker_DB.db";
@@ -40,24 +46,6 @@ public class Database {
     public void close() {
         disconnect();
     }
-
-    public ResultSet executeQuery(String query) {
-        
-        if (getConnection() == null) {
-            connect();
-        }
-    
-        try (PreparedStatement statement = connection.prepareStatement(query)) {
-            
-            return statement.executeQuery();
-    
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    
-        return null;
-    }
-    
     
 
     public void insertData(String tableName, Object... columnValues) {
@@ -146,9 +134,7 @@ public class Database {
 
 
 
-    public Connection getConnection() {
-        return connection;
-    }
+    
 }
                 
     

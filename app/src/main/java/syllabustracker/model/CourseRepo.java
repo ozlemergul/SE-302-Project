@@ -1,7 +1,9 @@
 package syllabustracker.model;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import syllabustracker.util.Database;
 
@@ -41,16 +43,20 @@ public class CourseRepo {
             db.connect();
         }
         
-        try (ResultSet resultSet = db.executeQuery(query)) {
-        
-            while (resultSet.next()) {
-                String courseId = resultSet.getString(1);
-                courseIDs.add(courseId);
+        try (Connection conn = db.getConnection();
+            Statement statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query)){
+            while(rs.next()){
+                courseIDs.add(rs.getString("code"));
             }
-        } catch (SQLException e) {
+            }
+        catch (SQLException e) {
             e.printStackTrace();
         }
         
+        db.close();
+    }
+    
     }
 
 
@@ -60,4 +66,4 @@ public class CourseRepo {
     
 
     
-}
+

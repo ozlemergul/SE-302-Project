@@ -21,9 +21,6 @@ public class EditSyllabusController implements PageController{
     @FXML
     private TextField semester;
 
-
-
-
     @Override
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;

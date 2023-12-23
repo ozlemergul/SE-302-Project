@@ -23,6 +23,10 @@ public class MainApp extends Application{
        Database db = new Database();
        db.connect();
 
+
+       CourseRepo courseRepo = new CourseRepo();
+       courseRepo.takeCourseIDs(db);
+
        launch(args);
 
     }
