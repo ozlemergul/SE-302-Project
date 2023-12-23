@@ -36,28 +36,10 @@ public class Assesment {
             db.connect();
         }
 
-        ArrayList<Activity> activities = new ArrayList<>();
-        ArrayList<Integer> 
-
         for(int i=0;i<activities.size();i++){
             db.insertData("evaluation_system",syllabusID,activities.get(i).getName(),activities.get(i).getNumber(),activities.get(i).getWeighting(),learningOutcomes);
         }
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         db.close();
         
     }

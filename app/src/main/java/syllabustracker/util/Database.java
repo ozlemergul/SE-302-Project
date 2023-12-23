@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class Database {
-    
+
     private Connection connection;
 
     public Database() {
@@ -41,17 +41,14 @@ public class Database {
         disconnect();
     }
 
-    public ResultSet executeQuery(String query, Object... params) {
-        if (connection == null) {
+    public ResultSet executeQuery(String query) {
+        
+        if (getConnection() == null) {
             connect();
         }
     
         try (PreparedStatement statement = connection.prepareStatement(query)) {
-            // Set parameters, if any
-            for (int i = 0; i < params.length; i++) {
-                statement.setObject(i + 1, params[i]);
-            }
-            // Execute the query
+            
             return statement.executeQuery();
     
         } catch (SQLException e) {

@@ -23,9 +23,14 @@ public class CourseRepo {
         Course newCourse = new Course(courseID, courseName, new ArrayList<Syllabus>(), new ArrayList<ChangeLog>());
         courses.add(newCourse);
 
-        db.connect();
+        if(db.getConnection() == null){
+            db.connect();
+        }
+       
         db.insertData("course",courseName,courseID);
         takeCourseIDs(db);
+
+    
 
     }
 
@@ -33,12 +38,15 @@ public class CourseRepo {
     
     public void takeCourseIDs(Database db){
         final String query = "SELECT code FROM course;";
-        db.connect();
+
+        if(db.getConnection() == null){
+            db.connect();
+        }
         
-        try (ResultSet resultSet = db.executeQuery(query,new ArrayList<>())) {
+        try (ResultSet resultSet = db.executeQuery(query)) {
         
             while (resultSet.next()) {
-                String courseId = resultSet.getString(1);
+                String courseId = resultSet.getString(2);
                 courseIDs.add(courseId);
             }
         } catch (SQLException e) {
