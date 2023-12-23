@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,6 +37,15 @@ public class CoursesPageController implements PageController,Initializable{
 
         for (String courseName : courseRepo.getCourseIDs()) {
             Button button = new Button(courseName);
+            button.setMaxWidth(Double.MAX_VALUE);
+            button.setPrefHeight(60);
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    PageLoader.loadPage("", primaryStage);
+                }
+
+            });
             coursesBox.getChildren().add(button);
         }
     }

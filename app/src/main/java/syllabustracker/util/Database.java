@@ -78,6 +78,41 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public Map<String, String> fetchRow(Database db, String tableName, String conditionColumn, String conditionValue) {
+        Map<String, String> rowData = new HashMap<>();
+
+        if (db.getConnection() == null) {
+            db.connect();
+        }
+
+        String query = "SELECT * FROM " + tableName + " WHERE " + conditionColumn + " = ?";
+        try (Connection conn = db.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query)) {
+
+            preparedStatement.setString(1, conditionValue);
+
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                ResultSetMetaData metaData = rs.getMetaData();
+                int numColumns = metaData.getColumnCount();
+
+                if (rs.next()) {
+                    for (int i = 1; i <= numColumns; i++) {
+                        String columnName = metaData.getColumnName(i);
+                        String columnValue = rs.getString(i);
+                        rowData.put(columnName, columnValue);
+                    }
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        db.close();
+
+        return rowData;
+    }
     
     public void deleteColumnData(int id, String columnName, String tableName) {
                             try {

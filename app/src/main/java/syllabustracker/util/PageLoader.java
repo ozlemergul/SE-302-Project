@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import syllabustracker.MainApp;
 import syllabustracker.controller.PageController;
+import syllabustracker.model.Course;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -41,6 +42,44 @@ public class PageLoader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void loadSyllabusPage(Stage primaryStage, Course course){
+
+        String courseCode = course.getCourseID();
+        String syllabusID = course.getSyllabi().get(course.getSyllabi().size() - 1).getSyllabusID();
+
+        
+
+        try{
+            // Set Scene
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource("/Syllabus.fxml"));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            if (primaryStage.getScene() != null) {
+                sceneStack.push(primaryStage.getScene());
+            }
+
+            primaryStage.setScene(scene);
+
+            // Set Controller
+            PageController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage);
+
+            // Show Page
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void takeSyllabusComponents(Database db,String courseCode,String syllabusID){
+
+        
+
+
     }
 
 

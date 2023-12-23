@@ -1,5 +1,9 @@
 package syllabustracker.model;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Locale.Category;
 
@@ -87,13 +91,17 @@ public class GeneralInfo {
         }
 
         db.close();
-        
-        
+         
     }
 
     private String getInstructorID(int no){
         return code +"T"+Integer.toString(no);
     }
+
+    
+
+   
+    
 
 
 }

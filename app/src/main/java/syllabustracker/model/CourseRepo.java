@@ -20,20 +20,21 @@ public class CourseRepo {
         this.courseIDs = courseIDs;
     }
 
-    public void createCourse(String courseName, String courseID, Database db){
-
+    public Course createCourse(String courseName, String courseID, Database db){
+        
+        // Object initialization
         Course newCourse = new Course(courseID, courseName, new ArrayList<Syllabus>(), new ArrayList<ChangeLog>());
         courses.add(newCourse);
 
+        // Database insert
         if(db.getConnection() == null){
             db.connect();
         }
-       
         db.insertData("course",courseName,courseID);
+        // Update courseIDs
         takeCourseIDs(db);
 
-    
-
+        return newCourse;
     }
 
     public void takeCourseIDs(Database db){

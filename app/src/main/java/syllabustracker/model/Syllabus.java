@@ -1,10 +1,14 @@
 package syllabustracker.model;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import syllabustracker.util.Database;
 
-public class Syllabus {
+public class Syllabus{
 
 
     private String syllabusID;
@@ -26,6 +30,31 @@ public class Syllabus {
         this.workLoad = workLoad;
     }
 
+      public String getSyllabusID() {
+        return syllabusID;
+    }
+
+    public GeneralInfo getGeneralInfo() {
+        return generalInfo;
+    }
+
+    public WeeklySubjects getWeeklySubjects() {
+        return weeklySubjects;
+    }
+
+    public Assesment getAssesment() {
+        return assesment;
+    }
+
+    public OutcomeMatrix getOutcomeMatrix() {
+        return OutcomeMatrix;
+    }
+
+    public ArrayList<Work> getWorkLoad() {
+        return workLoad;
+    }
+
+
     public void insertWorkLoad(Database db) {
 
         db.connect();
@@ -36,7 +65,5 @@ public class Syllabus {
 
         
     }
-
-    
     
 }
