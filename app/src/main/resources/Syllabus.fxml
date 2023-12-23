@@ -46,7 +46,7 @@
                         <Separator prefWidth="25.0" visible="false" />
                         <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Edit Syllabus" textAlignment="CENTER" />
                         <Separator prefWidth="25.0" visible="false" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Compare Syllabuses" textAlignment="CENTER" />
+                        <Button fx:id="compareButton" alignment="CENTER" mnemonicParsing="false" onAction="#compareButton" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Compare Syllabuses" textAlignment="CENTER" />
                         <Separator prefWidth="25.0" visible="false" />
                         <Button alignment="CENTER" mnemonicParsing="false" onAction="#oldVersionsButton" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Old Versions" textAlignment="CENTER" />
                      </children>

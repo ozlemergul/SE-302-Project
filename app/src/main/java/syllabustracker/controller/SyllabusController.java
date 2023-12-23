@@ -674,5 +674,11 @@ public class SyllabusController implements PageController, Initializable {
 
     }
 
+    @FXML
+    private void compareButton (ActionEvent event) {
+        PageLoader.loadPage("/Versions.fxml", primaryStage);
+
+    }
+
 
 }
