@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
@@ -24,14 +25,17 @@ import syllabustracker.model.enums.Language;
 import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
-public class CreateSyllabusController implements PageController{
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public  class CreateSyllabusController implements PageController,Initializable {
 
     @FXML
     public TextField courseName;
     @FXML
     public TextField courseID;
     @FXML
-    public ChoiceBox semester;
+    public ChoiceBox <String> semester;
     @FXML
     public TextField theoryHours;
     @FXML
@@ -43,11 +47,11 @@ public class CreateSyllabusController implements PageController{
     @FXML
     public TextArea prereqs;
     @FXML
-    public ChoiceBox courseLanguage;
+    public ChoiceBox <String> courseLanguage;
     @FXML
-    public ChoiceBox courseType;
+    public ChoiceBox <String> courseType;
     @FXML
-    public ChoiceBox courseLevel;
+    public ChoiceBox <String> courseLevel;
     @FXML
     public TextArea methods;
     @FXML
@@ -651,10 +655,26 @@ public class CreateSyllabusController implements PageController{
     @FXML
     private Stage primaryStage;
 
+    private String[] Semester = {"Fall", "Spring", "Both" };
+    private String[] CourseLanguage = {"English", "Turkish", "Second Foreign Language"};
+    private String[] CourseType = {"Required", "Elective"};
+    private String[] CourseLevel = {"Short Cycle", "First Cycle", "Second Cycle", "Third Cycle"};
+
     @Override
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        semester.getItems().addAll(Semester);
+        courseLanguage.getItems().addAll(CourseLanguage);
+        courseType.getItems().addAll(CourseType);
+        courseLevel.getItems().addAll(CourseLevel);
+
+    }
+
 
     @FXML
     public void cancelButton (ActionEvent event) {
@@ -803,6 +823,7 @@ public class CreateSyllabusController implements PageController{
     }
 
     
+
 
 
 }
