@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.SyllabusController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.CreateSyllabusController">
    <content>
-      <AnchorPane layoutX="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6000.0" prefWidth="731.0">
+      <AnchorPane layoutX="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="5750.0" prefWidth="731.0">
          <children>
             <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="745.0">
                <menus>
@@ -24,13 +24,6 @@
                         <MenuItem mnemonicParsing="false" text="Delete" />
                      </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Options">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Edit Syllabus" />
-                        <MenuItem mnemonicParsing="false" text="Compare Syllabuses" />
-                        <MenuItem mnemonicParsing="false" text="View Old Versions" />
-                    </items>
-                  </Menu>
                   <Menu mnemonicParsing="false" text="Help">
                      <items>
                         <MenuItem mnemonicParsing="false" text="About" />
@@ -38,23 +31,8 @@
                   </Menu>
                </menus>
             </MenuBar>
-            <VBox layoutX="62.0" layoutY="72.0" prefHeight="6000.0" prefWidth="626.0">
+            <VBox layoutX="52.0" layoutY="62.0" prefHeight="6000.0" prefWidth="626.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="626.0">
-                     <children>
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="About Syllabus" textAlignment="CENTER" />
-                        <Separator prefWidth="25.0" visible="false" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Edit Syllabus" textAlignment="CENTER" />
-                        <Separator prefWidth="25.0" visible="false" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Compare Syllabuses" textAlignment="CENTER" />
-                        <Separator prefWidth="25.0" visible="false" />
-                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Old Versions" textAlignment="CENTER" />
-                     </children>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </HBox>
-                  <Separator orientation="VERTICAL" prefHeight="25.0" visible="false" />
                   <HBox prefHeight="54.0" prefWidth="626.0">
                      <children>
                         <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="457.0" text="Course Name">
@@ -62,7 +40,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="courseName" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="573.0">
+                        <TextField fx:id="courseName" alignment="CENTER" prefHeight="54.0" prefWidth="573.0">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -108,28 +86,28 @@
                         </HBox>
                         <HBox prefHeight="45.0" prefWidth="626.0">
                            <children>
-                              <TextField fx:id="courseID" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="95.0">
+                              <TextField fx:id="courseID" alignment="CENTER" prefHeight="54.0" prefWidth="95.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <ChoiceBox fx:id="semester" disable="true" prefHeight="54.0" prefWidth="95.0" />
-                              <TextField fx:id="theoryHours" alignment="CENTER" editable="false" prefColumnCount="2" prefHeight="54.0" prefWidth="125.0">
+                              <ChoiceBox fx:id="semester" prefHeight="54.0" prefWidth="95.0" />
+                              <TextField fx:id="theoryHours" alignment="CENTER" prefColumnCount="2" prefHeight="54.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="applicationHours" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="125.0">
+                              <TextField fx:id="applicationHours" alignment="CENTER" prefHeight="54.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="localCredits" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="113.0">
+                              <TextField fx:id="localCredits" alignment="CENTER" prefHeight="54.0" prefWidth="113.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="ects" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="70.0">
+                              <TextField fx:id="ects" alignment="CENTER" prefHeight="54.0" prefWidth="70.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -148,7 +126,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="prereqs" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                              <TextArea fx:id="prereqs" prefHeight="200.0" prefWidth="573.0" wrapText="true">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -162,7 +140,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <ChoiceBox fx:id="courseLanguage" disable="true" prefHeight="200.0" prefWidth="573.0" />
+                              <ChoiceBox fx:id="courseLanguage" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -172,7 +150,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <ChoiceBox fx:id="courseType" disable="true" prefHeight="200.0" prefWidth="573.0" />
+                              <ChoiceBox fx:id="courseType" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -182,7 +160,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <ChoiceBox fx:id="courseLevel" disable="true" prefHeight="273.0" prefWidth="573.0" />
+                              <ChoiceBox fx:id="courseLevel" prefHeight="273.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="65.0" prefWidth="626.0">
@@ -196,7 +174,7 @@
                                     </Text>
                                  </children>
                               </VBox>
-                              <TextArea fx:id="methods" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="methods" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -206,7 +184,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="coordinator" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="coordinator" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -216,7 +194,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="lecturers" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="lecturers" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="54.0" prefWidth="626.0">
@@ -226,7 +204,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="assistants" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                              <TextArea fx:id="assistants" prefHeight="200.0" prefWidth="573.0" />
                            </children>
                         </HBox>
                      </children>
@@ -239,7 +217,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </TextArea>
-                        <TextArea fx:id="objectives" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                        <TextArea fx:id="objectives" prefHeight="200.0" prefWidth="573.0" wrapText="true">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -253,7 +231,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </TextArea>
-                        <TextArea fx:id="learningOutcomes" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                        <TextArea fx:id="learningOutcomes" prefHeight="200.0" prefWidth="573.0" wrapText="true">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -267,7 +245,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </TextArea>
-                        <TextArea fx:id="courseDescription" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                        <TextArea fx:id="courseDescription" prefHeight="200.0" prefWidth="573.0" wrapText="true">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -386,8 +364,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject1" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep1" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject1" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep1" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -397,8 +375,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject2" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep2" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject2" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep2" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -408,8 +386,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject3" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep3" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject3" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep3" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -419,8 +397,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject4" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep4" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject4" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep4" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -430,8 +408,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject5" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep5" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject5" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep5" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -441,8 +419,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject6" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep6" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject6" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep6" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -452,8 +430,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject7" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep7" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject7" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep7" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -463,8 +441,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject8" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep8" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject8" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep8" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -474,8 +452,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject9" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep9" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject9" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep9" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -485,8 +463,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject10" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep10" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject10" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep10" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -496,8 +474,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject11" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep11" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject11" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep11" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -507,8 +485,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject12" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep12" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject12" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep12" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -518,8 +496,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject13" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep13" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject13" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep13" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -529,8 +507,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject14" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep14" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject14" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep14" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -540,8 +518,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject15" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep15" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject15" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep15" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -551,8 +529,8 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="subject16" editable="false" prefHeight="200.0" prefWidth="376.0" />
-                              <TextArea fx:id="prep16" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                              <TextArea fx:id="subject16" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep16" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </HBox>
                      </children>
@@ -567,7 +545,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextArea>
-                              <TextArea fx:id="CourseNotes" editable="false" prefHeight="150.0" prefWidth="573.0" wrapText="true">
+                              <TextArea fx:id="CourseNotes" prefHeight="150.0" prefWidth="573.0" wrapText="true">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -581,7 +559,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextArea>
-                              <TextArea fx:id="SuggestedMaterials" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                              <TextArea fx:id="SuggestedMaterials" prefHeight="200.0" prefWidth="573.0" wrapText="true">
                                  <opaqueInsets>
                                     <Insets />
                                  </opaqueInsets>
@@ -618,38 +596,31 @@
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO1">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO2">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO3">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO4">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO5">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO6">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                               <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO7">
                                  <font>
                                     <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </TextField>
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -659,23 +630,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="participationNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="participationNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="participationWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="participationWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="participation_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="participation_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="participation_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="participation_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="participation_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="participation_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="participation_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -685,23 +656,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="labNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="labNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="labWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="labWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="lab_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="lab_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="lab_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="lab_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="lab_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="lab_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="lab_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -711,23 +682,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="fieldWorkNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="fieldWorkNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="fieldWorkWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="fieldWorkWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="fwork_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="fwork_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="fwork_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="fwork_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="fwork_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="fwork_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="fwork_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -737,23 +708,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="quizNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="quizNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="quizWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="quizWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="quiz_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="quiz_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="quiz_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="quiz_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="quiz_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="quiz_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="quiz_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -763,23 +734,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="portfolioNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="portfolioNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="portfolioWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="portfolioWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="portfolio_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="portfolio_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="portfolio_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="portfolio_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="portfolio_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="portfolio_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="portfolio_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -789,23 +760,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="hwNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="hwNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="hwWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="hwWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="hw_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="hw_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="hw_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="hw_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="hw_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="hw_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="hw_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -815,23 +786,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="presentationNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="presentationNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="presentationWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="presentationWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="presentation_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="presentation_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="presentation_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="presentation_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="presentation_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="presentation_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="presentation_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -841,23 +812,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="projectNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="projectNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="projectWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="projectWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="project_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="project_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="project_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="project_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="project_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="project_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="project_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -867,23 +838,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="seminarNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="seminarNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="seminarWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="seminarWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="seminar_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="seminar_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="seminar_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="seminar_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="seminar_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="seminar_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="seminar_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -893,23 +864,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="oralExamNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="oralExamNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="oralExamWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="oralExamWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="oralExam_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="oralExam_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="oralExam_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="oralExam_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="oralExam_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="oralExam_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="oralExam_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -919,23 +890,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="midtermNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="midtermNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="midtermWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="midtermWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="midterm_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="midterm_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="midterm_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="midterm_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="midterm_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="midterm_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="midterm_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -945,23 +916,23 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="finalNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="finalNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="finalWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="finalWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="final_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="final_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="final_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="final_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="final_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="final_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="final_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
@@ -971,23 +942,23 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="totalNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                              <TextField fx:id="totalNum" prefHeight="40.0" prefWidth="110.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="totalWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                              <TextField fx:id="totalWeight" prefHeight="40.0" prefWidth="125.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="total_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="total_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="total_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="total_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="total_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="total_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
-                              <TextField fx:id="total_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO1" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO2" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO3" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO4" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO5" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO6" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO7" prefHeight="40.0" prefWidth="70.0" />
                            </children>
                         </HBox>
                         <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
@@ -998,12 +969,12 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FGWeightSem_area1" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FGWeightSem_area1" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FGWeightSem_area2" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FGWeightSem_area2" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1017,12 +988,12 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FGWeightEndSem_area1" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FGWeightEndSem_area1" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FGWeightEndSem_area2" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FGWeightEndSem_area2" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1036,12 +1007,12 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="total_area1" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="total_area1" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="total_area2" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="total_area2" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1089,17 +1060,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="TheoreticalCourseHoursNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="TheoreticalCourseHoursNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="TheoreticalCourseHoursDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="TheoreticalCourseHoursDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="TheoreticalCourseHoursWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="TheoreticalCourseHoursWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1113,17 +1084,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="labNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="labNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="labDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="labDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="labWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="labWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1137,17 +1108,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="StudyHoursNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="StudyHoursNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="StudyHoursDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="StudyHoursDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="StudyHoursWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="StudyHoursWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1161,17 +1132,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FieldWorkNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FieldWorkNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FieldWorkDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FieldWorkDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FieldWorkWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FieldWorkWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1185,17 +1156,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="QuizNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="QuizNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="QuizDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="QuizDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="QuizWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="QuizWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1209,17 +1180,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="PortfolioNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="PortfolioNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="PortfolioDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="PortfolioDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="PortfolioWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="PortfolioWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1233,17 +1204,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="HwNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="HwNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="HwDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="HwDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="HwWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="HwWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1257,17 +1228,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="PresentationNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="PresentationNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="PresentationDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="PresentationDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="PresentationWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="PresentationWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1281,17 +1252,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="ProjectNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="ProjectNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="ProjectDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="ProjectDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="ProjectWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="ProjectWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1305,17 +1276,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="SeminarNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="SeminarNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="SeminarDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="SeminarDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="SeminarWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="SeminarWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1329,17 +1300,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="OralExamNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="OralExamNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="OralExamDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="OralExamDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="OralExamWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="OralExamWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1353,17 +1324,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="MidtermNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="MidtermNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="MidtermDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="MidtermDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="MidtermWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="MidtermWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1377,17 +1348,17 @@
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FinalExamNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FinalExamNum_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FinalExamDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FinalExamDuration_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="FinalExamWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="FinalExamWorkload_" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1411,7 +1382,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextField fx:id="totalSemesterActivity" editable="false" prefHeight="40.0" prefWidth="120.0">
+                              <TextField fx:id="totalSemesterActivity" prefHeight="40.0" prefWidth="120.0">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1492,7 +1463,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText1" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText1" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel1_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1518,7 +1489,7 @@
                                     <CheckBox fx:id="contLevel1_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel1_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel1_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1528,7 +1499,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText2" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText2" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel2_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1554,7 +1525,7 @@
                                     <CheckBox fx:id="contLevel2_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel2_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel2_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1564,7 +1535,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText3" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText3" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel3_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1590,7 +1561,7 @@
                                     <CheckBox fx:id="contLevel3_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel3_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel3_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1600,7 +1571,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText4" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText4" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel4_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1626,7 +1597,7 @@
                                     <CheckBox fx:id="contLevel4_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel4_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel4_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1636,7 +1607,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText5" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText5" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel5_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1662,7 +1633,7 @@
                                     <CheckBox fx:id="contLevel5_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel5_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel5_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1672,7 +1643,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText6" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText6" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel6_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1698,7 +1669,7 @@
                                     <CheckBox fx:id="contLevel6_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel6_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel6_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1708,7 +1679,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText7" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText7" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel7_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1734,7 +1705,7 @@
                                     <CheckBox fx:id="contLevel7_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel7_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel7_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1744,7 +1715,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText8" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText8" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel8_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1770,7 +1741,7 @@
                                     <CheckBox fx:id="contLevel8_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel8_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel8_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1780,7 +1751,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText9" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText9" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel9_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1806,7 +1777,7 @@
                                     <CheckBox fx:id="contLevel9_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel9_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel9_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1816,7 +1787,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText10" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText10" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel10_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1842,7 +1813,7 @@
                                     <CheckBox fx:id="contLevel10_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel10_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel10_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1852,7 +1823,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText11" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText11" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel11_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1878,7 +1849,7 @@
                                     <CheckBox fx:id="contLevel11_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel11_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel11_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1888,7 +1859,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText12" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText12" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel12_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1914,7 +1885,7 @@
                                     <CheckBox fx:id="contLevel12_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel12_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel12_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
@@ -1924,7 +1895,7 @@
                                     <Font name="System Bold" size="14.0" />
                                  </font>
                               </TextField>
-                              <TextArea fx:id="programOutcomeText13" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <TextArea fx:id="programOutcomeText13" prefHeight="200.0" prefWidth="375.0" />
                               <Pane prefHeight="100.0" prefWidth="40.0">
                                  <children>
                                     <CheckBox fx:id="contLevel13_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
@@ -1950,7 +1921,7 @@
                                     <CheckBox fx:id="contLevel13_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <TextArea fx:id="contLevel13_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                              <TextArea fx:id="contLevel13_LO" prefHeight="200.0" prefWidth="50.0" />
                            </children>
                         </HBox>
                         <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
@@ -1962,6 +1933,16 @@
                      </children>
                   </VBox>
                   <Separator orientation="VERTICAL" prefHeight="70.0" visible="false" />
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="626.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#saveSyllabus" prefHeight="30.0" prefWidth="70.0" text="Save" textAlignment="CENTER" />
+                        <Separator prefWidth="60.0" visible="false" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#cancelButton" prefHeight="30.0" prefWidth="70.0" text="Cancel" textAlignment="CENTER" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
                </children>
             </VBox>
          </children>

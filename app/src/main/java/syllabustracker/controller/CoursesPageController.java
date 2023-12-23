@@ -57,7 +57,7 @@ public class CoursesPageController implements PageController,Initializable{
 
     @FXML
     public void addNewCourseButton (ActionEvent event) {
-        PageLoader.loadPage("/EditSyllabus.fxml", primaryStage);
+        PageLoader.loadPage("/CreateSyllabus.fxml", primaryStage);
     }
 
 

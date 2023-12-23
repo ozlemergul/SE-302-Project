@@ -20,7 +20,7 @@ public class MainPageController implements PageController{
     
     @FXML
     private void createNewCourse (ActionEvent event) {
-        PageLoader.loadPage("/EditSyllabus.fxml", primaryStage);
+        PageLoader.loadPage("/CreateSyllabus.fxml", primaryStage);
         
     }
 
