@@ -32,6 +32,8 @@ public class CoursesPageController implements PageController,Initializable{
 
         CourseRepo courseRepo = new CourseRepo();
         courseRepo.takeCourseIDs(db);
+        System.out.println(courseRepo.getCourseIDs().get(0));
+        
 
         Button testbutton = new Button("Test");
         

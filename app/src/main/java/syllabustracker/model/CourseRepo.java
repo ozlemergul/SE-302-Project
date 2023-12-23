@@ -34,8 +34,6 @@ public class CourseRepo {
 
     }
 
-    
-    
     public void takeCourseIDs(Database db){
         final String query = "SELECT code FROM course;";
 
@@ -46,7 +44,7 @@ public class CourseRepo {
         try (ResultSet resultSet = db.executeQuery(query)) {
         
             while (resultSet.next()) {
-                String courseId = resultSet.getString(2);
+                String courseId = resultSet.getString(1);
                 courseIDs.add(courseId);
             }
         } catch (SQLException e) {
