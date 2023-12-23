@@ -1,5 +1,6 @@
 package syllabustracker.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
@@ -7,6 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import syllabustracker.util.PageLoader;
 
 public class SyllabusController implements PageController{
 
@@ -639,6 +641,18 @@ public class SyllabusController implements PageController{
     @Override
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
+    }
+
+    @FXML
+    private void aboutSyllabusButton (ActionEvent event) {
+        PageLoader.loadPage("/AboutSyllabus.fxml", primaryStage);
+
+    }
+
+    @FXML
+    private void oldVersionsButton (ActionEvent event) {
+        PageLoader.loadPage("/OldVersions.fxml", primaryStage);
+
     }
 
 

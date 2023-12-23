@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.OldVersionsController">
+   <children>
+      <ScrollPane layoutX="67.0" layoutY="84.0" prefHeight="315.0" prefWidth="466.0">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="315.0" prefWidth="450.0">
+               <children>
+                  <VBox prefHeight="315.0" prefWidth="450.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="3.0" top="5.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <HBox alignment="CENTER" layoutX="67.0" layoutY="37.0" prefHeight="46.0" prefWidth="466.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="    OLD VERSIONS">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="120.0" right="60.0" />
+               </HBox.margin>
+            </Text>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Add">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Delete" />
+         </children>
+      </HBox>
+      <Button layoutX="32.0" layoutY="38.0" mnemonicParsing="false" onAction="#backButton" prefHeight="33.0" prefWidth="63.0" text="Back" />
+   </children>
+</AnchorPane>
