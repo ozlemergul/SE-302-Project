@@ -25,15 +25,15 @@ public class CoursesPageController implements PageController,Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        System.out.println("Hello");
-
+        // Database connection
         Database db = new Database();
         if(db.getConnection() == null){
             db.connect();
         }
 
+        // Showing course list with buttons
         CourseRepo courseRepo = new CourseRepo();
-        courseRepo.takeCourseIDs(db);
+        courseRepo.readCourseIDs(db);
 
         for (String courseName : courseRepo.getCourseIDs()) {
             Button button = new Button(courseName);
@@ -48,6 +48,7 @@ public class CoursesPageController implements PageController,Initializable{
             });
             coursesBox.getChildren().add(button);
         }
+
     }
 
     @Override
@@ -58,6 +59,16 @@ public class CoursesPageController implements PageController,Initializable{
     @FXML
     public void addNewCourseButton (ActionEvent event) {
         PageLoader.loadPage("/CreateSyllabus.fxml", primaryStage);
+    }
+
+    @FXML
+    public void goBack (ActionEvent event) {
+        PageLoader.loadPage("/MainPage.fxml", primaryStage);
+    }
+
+    @FXML
+    public void deleteCourse (ActionEvent event) {
+        
     }
 
 

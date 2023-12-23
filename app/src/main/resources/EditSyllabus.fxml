@@ -268,7 +268,7 @@
                   <Separator orientation="VERTICAL" prefHeight="40.0" visible="false" />
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" prefHeight="200.0" prefWidth="150.0" text="Course Category">
+                        <TextField editable="false" alignment="CENTER" prefHeight="200.0" prefWidth="150.0" text="Course Category">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

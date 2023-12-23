@@ -46,7 +46,6 @@ public class Course {
          db.connect();
       }
 
-      
       generalInfo.insertGeneralInfo(db, getSyllabusID(versionNo));
       weeklySubjects.insertWeeklySubjects(db, getSyllabusID(versionNo));
       assesment.insertAssesment(db, getSyllabusID(versionNo));

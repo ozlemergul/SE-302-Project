@@ -17,7 +17,7 @@ public class EditSyllabusController implements PageController{
     @FXML
     public TextField courseID;
     @FXML
-    public ChoiceBox semester;
+    public ChoiceBox<String> semester;
     @FXML
     public TextField theoryHours;
     @FXML
@@ -29,11 +29,11 @@ public class EditSyllabusController implements PageController{
     @FXML
     public TextArea prereqs;
     @FXML
-    public ChoiceBox courseLanguage;
+    public ChoiceBox<String> courseLanguage;
     @FXML
-    public ChoiceBox courseType;
+    public ChoiceBox<String> courseType;
     @FXML
-    public ChoiceBox courseLevel;
+    public ChoiceBox<String> courseLevel;
     @FXML
     public TextArea methods;
     @FXML
@@ -652,17 +652,11 @@ public class EditSyllabusController implements PageController{
     public void saveSyllabus(ActionEvent event) {
 
         try {
-            String courseNameF = courseName.getText();
-            
-            String courseIDF = courseID.getText();
-
-            //TODO: get text kullanılamıyor choicebox
-            //int courseSemester = Integer.parseInt(semester.getText());
+         
         } catch(Exception e) {
             
         }
         //PageLoader.showAnotherPage("/SavingScreen.fxml");
     }
-
 
 }

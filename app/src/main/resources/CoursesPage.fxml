@@ -33,17 +33,25 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="COURSES">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
                <HBox.margin>
-                  <Insets left="120.0" right="60.0" />
+                  <Insets left="90.0" right="40.0" />
                </HBox.margin>
             </Text>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#addNewCourseButton" prefHeight="30.0" prefWidth="50.0" text="Add">
+            <Button fx:id="addNewCourse" alignment="CENTER" mnemonicParsing="false" onAction="#addNewCourseButton" prefHeight="30.0" prefWidth="60.0" text="Add">
                <HBox.margin>
-                  <Insets right="15.0" />
+                  <Insets right="20.0" />
                </HBox.margin></Button>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="50.0" text="Delete" />
+            <Button fx:id="deleteCourse" alignment="CENTER" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="30.0" prefWidth="60.0" text="Delete">
+               <HBox.margin>
+                  <Insets right="20.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="goBack" alignment="CENTER" mnemonicParsing="false" onAction="#goBack" prefHeight="30.0" prefWidth="60.0" text="Back">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></Button>
          </children>
       </HBox>
       <ScrollPane layoutX="66.0" layoutY="90.0" prefHeight="278.0" prefWidth="466.0">

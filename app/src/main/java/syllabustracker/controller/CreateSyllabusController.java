@@ -1,5 +1,6 @@
 package syllabustracker.controller;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -647,6 +648,7 @@ public class CreateSyllabusController implements PageController{
         PageLoader.goPreviousPage(primaryStage);
 
     }
+    
 
     @FXML
     public void saveSyllabus(ActionEvent event) {
@@ -663,6 +665,8 @@ public class CreateSyllabusController implements PageController{
         }
         //PageLoader.showAnotherPage("/SavingScreen.fxml");
     }
+
+    
 
 
 }

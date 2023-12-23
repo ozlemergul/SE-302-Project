@@ -32,12 +32,12 @@ public class CourseRepo {
         }
         db.insertData("course",courseName,courseID);
         // Update courseIDs
-        takeCourseIDs(db);
+        readCourseIDs(db);
 
         return newCourse;
     }
 
-    public void takeCourseIDs(Database db){
+    public void readCourseIDs(Database db){
         final String query = "SELECT code FROM course;";
 
         if(db.getConnection() == null){

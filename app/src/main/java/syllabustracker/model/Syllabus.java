@@ -62,8 +62,8 @@ public class Syllabus{
         for(int i=0; i<workLoad.size(); i++){
             db.insertData(syllabusID,workLoad.get(i).getName(),workLoad.get(i).getNumber(),workLoad.get(i).getDuration(),workLoad.get(i).getLoad());
         }
-
-        
+  
     }
+
     
 }
