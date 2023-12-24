@@ -1,4 +1,5 @@
 package syllabustracker.model;
+import java.sql.SQLException;
 import java.util.Date;
 
 import syllabustracker.util.Database;
@@ -18,14 +19,18 @@ public class ChangeLog {
 
     public void insertChangeLog (String oldSyllabusID, String newSyllabusID, Database db){
 
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         db.insertData("change_log", oldSyllabusID,newSyllabusID,getChangeID(oldSyllabusID, newSyllabusID),reason,lecturer,date.toString());
 
 
-       
+       db.close();
 
     }
 

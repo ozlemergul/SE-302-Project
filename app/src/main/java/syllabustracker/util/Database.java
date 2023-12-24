@@ -82,8 +82,12 @@ public class Database {
     public Map<String, String> fetchRow(Database db, String tableName, String conditionColumn, String conditionValue) {
         Map<String, String> rowData = new HashMap<>();
 
-        if (db.getConnection() == null) {
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         String query = "SELECT * FROM " + tableName + " WHERE " + conditionColumn + " = ?";

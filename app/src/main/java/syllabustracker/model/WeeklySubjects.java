@@ -1,6 +1,6 @@
 package syllabustracker.model;
 
-import java.security.Key;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -33,13 +33,17 @@ public class WeeklySubjects {
             materials.add(material);
         }
         
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         // Subjects and required material database insert
         for(int i=0; i < weeklyPlan.size() ;i++){
-            db.insertData("weekly_subject", i+1 ,subjects.get(i),materials.get(i));
+            db.insertData("weekly_subject",syllabusID,i+1 ,subjects.get(i),materials.get(i));
         }
 
         // Textbooks database insert
@@ -51,6 +55,8 @@ public class WeeklySubjects {
         for(int k=0; k < textBooks.size(); k++){
             db.insertData("textbook", syllabusID,suggestedReadings.get(k),"suggested");
         }
+
+        db.close();
 
     
         

@@ -1,5 +1,6 @@
 package syllabustracker.model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -17,8 +18,12 @@ public class OutcomeMatrix {
 
     public void insertOutcomeMatrix(Database db,String syllabusID){
 
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         // Program outcomes database insert
@@ -44,6 +49,7 @@ public class OutcomeMatrix {
             db.insertData("course_competency",syllabusID,compentencyID,contributionLevels.get(j),relatedLearningOutcomes.get(j));
         }
 
+        db.close();
     
 
     }

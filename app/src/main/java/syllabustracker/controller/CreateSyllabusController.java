@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ResourceBundle;
+import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import syllabustracker.model.Activity;
 import syllabustracker.model.Assesment;
@@ -688,10 +688,14 @@ public class CreateSyllabusController implements PageController,Initializable{
 
         // Database connection
         Database db = new Database();
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        
         //Create a new course and insert database
         CourseRepo courseRepo = new CourseRepo();
         Course newCourse = courseRepo.createCourse(courseName.getText(), courseID.getText(), db);
@@ -902,9 +906,10 @@ public class CreateSyllabusController implements PageController,Initializable{
 
         // Insert syllabus to database
         newSyllabus.insertSyllabus(db);
+        db.close();
 
         // Go to courses page
-        //PageLoader.loadPage("/CoursesPage.fxml", primaryStage);
+        PageLoader.loadPage("/CoursesPage.fxml", primaryStage);
 
     }
 

@@ -1,6 +1,7 @@
 package syllabustracker.model;
 
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import syllabustracker.util.Database;
 
@@ -53,8 +54,12 @@ public class GeneralInfo {
 
     public void insertGeneralInfo(Database db,String syllabusID){
         
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         // General Info Database Insert
@@ -76,7 +81,8 @@ public class GeneralInfo {
             db.insertData("learning_outcomes",syllabusID,learningOutcomes.get(k));
         }
 
-         
+        db.close();
+
     }
 
     private String getInstructorID(int no){

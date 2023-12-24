@@ -1,5 +1,6 @@
 package syllabustracker.model;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
@@ -27,8 +28,12 @@ public class Assesment {
 
     public void insertAssesment(Database db, String syllabusID){
 
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         for(int i=0;i<activities.size();i++){

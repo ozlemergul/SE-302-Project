@@ -35,19 +35,25 @@ public class CourseRepo {
         // Update courseIDs
         readCourseIDs(db);
 
+        db.close();
+
         return newCourse;
     }
 
     public void readCourseIDs(Database db){
         final String query = "SELECT code FROM course;";
 
-        if(db.getConnection() == null){
-            db.connect();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         
-        try (Connection conn = db.getConnection();
+        try {Connection conn = db.getConnection();
             Statement statement = conn.createStatement();
-            ResultSet rs = statement.executeQuery(query)){
+            ResultSet rs = statement.executeQuery(query);
             while(rs.next()){
                 courseIDs.add(rs.getString("code"));
             }
@@ -55,6 +61,8 @@ public class CourseRepo {
         catch (SQLException e) {
             e.printStackTrace();
         }
+
+        db.close();
         
         
     }
