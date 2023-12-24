@@ -23,7 +23,8 @@ public class OutcomeMatrix {
 
         // Program outcomes database insert
         for(int i=0; i<programOutcomes.size(); i++){
-            db.insertData("program_competency",i+1,programOutcomes.get(i));
+            String compentencyID = syllabusID + "C" + (i+1);
+            db.insertData("program_competency",compentencyID,programOutcomes.get(i));
         }
 
         // Contribution levels and realted learning outcomes insert
@@ -39,12 +40,15 @@ public class OutcomeMatrix {
         }
 
         for(int j=0;j<contributionLevels.size();j++){
-            db.insertData("course_competency",j+1,syllabusID,contributionLevels.get(j),relatedLearningOutcomes.get(j));
+            String compentencyID = syllabusID + "C" + (j+1);
+            db.insertData("course_competency",syllabusID,compentencyID,contributionLevels.get(j),relatedLearningOutcomes.get(j));
         }
 
         db.close();
 
     }
+
+    
 
     
 }
