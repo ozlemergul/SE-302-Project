@@ -904,7 +904,7 @@ public class CreateSyllabusController implements PageController,Initializable{
         newSyllabus.insertSyllabus(db);
 
         // Go to courses page
-        PageLoader.loadPage("/CoursesPage.fxml", primaryStage);
+        //PageLoader.loadPage("/CoursesPage.fxml", primaryStage);
 
     }
 

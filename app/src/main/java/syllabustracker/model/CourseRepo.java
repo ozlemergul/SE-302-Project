@@ -56,7 +56,7 @@ public class CourseRepo {
             e.printStackTrace();
         }
         
-        db.close();
+        
     }
     
     }

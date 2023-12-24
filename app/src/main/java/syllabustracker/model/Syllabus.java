@@ -59,11 +59,18 @@ public class Syllabus{
             db.connect();
         }
 
-        generalInfo.insertGeneralInfo(db, syllabusID);
-        weeklySubjects.insertWeeklySubjects(db, syllabusID);
-        assesment.insertAssesment(db, syllabusID);
-        insertWorkLoad(db);
-        outcomeMatrix.insertOutcomeMatrix(db, syllabusID);
+        try {
+            generalInfo.insertGeneralInfo(db, syllabusID);
+            weeklySubjects.insertWeeklySubjects(db, syllabusID);
+            assesment.insertAssesment(db, syllabusID);
+            insertWorkLoad(db);
+            outcomeMatrix.insertOutcomeMatrix(db, syllabusID);
+        } catch (Exception e) {
+            e.printStackTrace(); 
+        }
+
+    
+        db.close();
     }
 
 
@@ -74,6 +81,7 @@ public class Syllabus{
         for(int i=0; i<workLoad.size(); i++){
             db.insertData("workload",syllabusID,workLoad.get(i).getName(),workLoad.get(i).getNumber(),workLoad.get(i).getDuration(),workLoad.get(i).getLoad());
         }
+
   
     }
 

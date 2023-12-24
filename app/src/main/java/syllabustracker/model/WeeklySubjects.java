@@ -52,7 +52,7 @@ public class WeeklySubjects {
             db.insertData("textbook", syllabusID,suggestedReadings.get(k),"suggested");
         }
 
-        db.close();
+    
         
     }
 

@@ -44,7 +44,7 @@ public class OutcomeMatrix {
             db.insertData("course_competency",syllabusID,compentencyID,contributionLevels.get(j),relatedLearningOutcomes.get(j));
         }
 
-        db.close();
+    
 
     }
 

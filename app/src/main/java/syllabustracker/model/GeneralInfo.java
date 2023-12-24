@@ -76,7 +76,6 @@ public class GeneralInfo {
             db.insertData("learning_outcomes",syllabusID,learningOutcomes.get(k));
         }
 
-        db.close();
          
     }
 

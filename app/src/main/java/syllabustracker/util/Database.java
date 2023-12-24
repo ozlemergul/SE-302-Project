@@ -109,7 +109,6 @@ public class Database {
             e.printStackTrace();
         }
 
-        db.close();
 
         return rowData;
     }

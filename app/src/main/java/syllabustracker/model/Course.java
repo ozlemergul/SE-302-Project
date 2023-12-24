@@ -2,7 +2,7 @@ package syllabustracker.model;
 
 import java.util.ArrayList;
 
-import syllabustracker.util.Database;
+
 
 public class Course {
 

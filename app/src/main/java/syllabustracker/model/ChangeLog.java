@@ -25,7 +25,7 @@ public class ChangeLog {
         db.insertData("change_log", oldSyllabusID,newSyllabusID,getChangeID(oldSyllabusID, newSyllabusID),reason,lecturer,date.toString());
 
 
-        db.close();
+       
 
     }
 
