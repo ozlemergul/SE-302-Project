@@ -1,4 +1,4 @@
-package syllabustracker.model.enums;
+package syllabustracker.model;
 
 
 public enum CourseCategory {

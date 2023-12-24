@@ -1,35 +1,21 @@
 package syllabustracker.model;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+
 import java.util.ArrayList;
-import java.util.Locale.Category;
-
-import org.checkerframework.checker.units.qual.s;
-
-import com.google.j2objc.annotations.ReflectionSupport.Level;
-
-import syllabustracker.model.enums.CourseCategory;
-import syllabustracker.model.enums.CourseLevel;
-import syllabustracker.model.enums.CourseType;
-import syllabustracker.model.enums.Language;
-import syllabustracker.model.enums.Term;
 import syllabustracker.util.Database;
 
 public class GeneralInfo {
 
     private String code;
-    private Term term;
+    private String term;
     private int theoryHours;
     private int labHours;
     private int localCredits;
     private int ects;
     private String preReqs;
-    private Language language;
-    private CourseType courseType; // Required or Elective
-    private CourseLevel courseLevel;
+    private String language;
+    private String courseType; // Required or Elective
+    private String courseLevel;
     private String teachMethods;
     private String coordinator;
     private ArrayList<String> lecturers = new ArrayList<>();
@@ -40,8 +26,8 @@ public class GeneralInfo {
     private CourseCategory courseCategory;
 
 
-    public GeneralInfo(String code,Term term, int theoryHours, int labHours, int localCredits, int ects, String preReqs,
-            Language language, CourseType courseType, CourseLevel courseLevel, String teachMethods,
+    public GeneralInfo(String code,String term, int theoryHours, int labHours, int localCredits, int ects, String preReqs,
+            String language, String courseType, String courseLevel, String teachMethods,
             String coordinator, ArrayList<String> lecturers, ArrayList<String> assistants, String objectives,
             ArrayList<String> learningOutcomes, String description, CourseCategory courseCategory) {
         this.code = code;
@@ -72,7 +58,7 @@ public class GeneralInfo {
         }
 
         // General Info Database Insert
-        db.insertData("general_info",syllabusID,term.toString(),theoryHours,labHours,localCredits,ects,preReqs,language,courseType,courseLevel.toString(),courseCategory,teachMethods,objectives,description);
+        db.insertData("general_info",syllabusID,term,theoryHours,labHours,localCredits,ects,preReqs,language,courseType,courseLevel,courseCategory,teachMethods,objectives,description);
         
         // Coordinator Database Insert
         db.insertData("instructor",getInstructorID(1),coordinator,"coordinator");

@@ -1,11 +1,6 @@
 package syllabustracker.model;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-
 import syllabustracker.util.Database;
 
 public class Syllabus{
@@ -15,8 +10,9 @@ public class Syllabus{
     private GeneralInfo generalInfo;
     private WeeklySubjects weeklySubjects;
     private Assesment assesment;
-    private OutcomeMatrix OutcomeMatrix;
+    private OutcomeMatrix outcomeMatrix;
     private ArrayList<Work> workLoad = new ArrayList<>();
+    
 
 
     public Syllabus(String syllabusID, GeneralInfo generalInfo, WeeklySubjects weeklySubjects, Assesment assesment,
@@ -26,11 +22,14 @@ public class Syllabus{
         this.generalInfo = generalInfo;
         this.weeklySubjects = weeklySubjects;
         this.assesment = assesment;
-        this.OutcomeMatrix = outcomeMatrix;
+        this.outcomeMatrix = outcomeMatrix;
         this.workLoad = workLoad;
+
     }
 
-      public String getSyllabusID() {
+
+
+    public String getSyllabusID() {
         return syllabusID;
     }
 
@@ -47,11 +46,24 @@ public class Syllabus{
     }
 
     public OutcomeMatrix getOutcomeMatrix() {
-        return OutcomeMatrix;
+        return outcomeMatrix;
     }
 
     public ArrayList<Work> getWorkLoad() {
         return workLoad;
+    }
+
+    public void insertSyllabus(Database db){
+
+        if(db.getConnection() == null){
+            db.connect();
+        }
+
+        generalInfo.insertGeneralInfo(db, syllabusID);
+        weeklySubjects.insertWeeklySubjects(db, syllabusID);
+        assesment.insertAssesment(db, syllabusID);
+        insertWorkLoad(db);
+        outcomeMatrix.insertOutcomeMatrix(db, syllabusID);
     }
 
 
@@ -60,7 +72,7 @@ public class Syllabus{
         db.connect();
 
         for(int i=0; i<workLoad.size(); i++){
-            db.insertData(syllabusID,workLoad.get(i).getName(),workLoad.get(i).getNumber(),workLoad.get(i).getDuration(),workLoad.get(i).getLoad());
+            db.insertData("workload",syllabusID,workLoad.get(i).getName(),workLoad.get(i).getNumber(),workLoad.get(i).getDuration(),workLoad.get(i).getLoad());
         }
   
     }

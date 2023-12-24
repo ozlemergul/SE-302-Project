@@ -1,8 +1,7 @@
 package syllabustracker.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.regex.Pattern;
+
 
 import syllabustracker.util.Database;
 
@@ -13,21 +12,17 @@ public class Assesment {
     private int totalAssesments;
     private int weightSemester;
     private int weightEndSemester;
-    private String learningOutcomes; // in a 100010 like format
+    private ArrayList<String> learningOutcomes; // in a 100010 like format
 
-    // Regex for {0,1}*
-    private Pattern loPattern = Pattern.compile("^[01]*$");
 
 
     public Assesment(ArrayList<Activity> activities, int totalAssesments, int weightSemester,
-            int weightEndSemester, String learningOutcomes) {
+            int weightEndSemester, ArrayList<String> learningOutcomes) {
         this.activities = activities;
         this.totalAssesments = totalAssesments;
         this.weightSemester = weightSemester;
         this.weightEndSemester = weightEndSemester;
-
-        if(loPattern.matcher(learningOutcomes).matches()){
-        this.learningOutcomes = learningOutcomes;}
+        this.learningOutcomes = learningOutcomes;
     }
 
     public void insertAssesment(Database db, String syllabusID){
@@ -37,7 +32,7 @@ public class Assesment {
         }
 
         for(int i=0;i<activities.size();i++){
-            db.insertData("evaluation_system",syllabusID,activities.get(i).getName(),activities.get(i).getNumber(),activities.get(i).getWeighting(),learningOutcomes);
+            db.insertData("evaluation_system",syllabusID,activities.get(i).getName(),activities.get(i).getNumber(),activities.get(i).getWeighting(),learningOutcomes.get(i));
         }
         
         db.close();

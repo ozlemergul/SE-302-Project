@@ -1,7 +1,11 @@
 package syllabustracker.controller;
 
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,30 +16,27 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import syllabustracker.model.Activity;
 import syllabustracker.model.Assesment;
 import syllabustracker.model.Course;
+import syllabustracker.model.CourseCategory;
 import syllabustracker.model.CourseRepo;
 import syllabustracker.model.GeneralInfo;
 import syllabustracker.model.OutcomeMatrix;
 import syllabustracker.model.Syllabus;
 import syllabustracker.model.WeeklySubjects;
 import syllabustracker.model.Work;
-import syllabustracker.model.enums.CourseType;
-import syllabustracker.model.enums.Language;
 import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public  class CreateSyllabusController implements PageController,Initializable {
+public class CreateSyllabusController implements PageController,Initializable{
 
     @FXML
     public TextField courseName;
     @FXML
     public TextField courseID;
     @FXML
-    public ChoiceBox <String> semester;
+    public ChoiceBox<String> semester;
     @FXML
     public TextField theoryHours;
     @FXML
@@ -47,11 +48,11 @@ public  class CreateSyllabusController implements PageController,Initializable {
     @FXML
     public TextArea prereqs;
     @FXML
-    public ChoiceBox <String> courseLanguage;
+    public ChoiceBox<String> courseLanguage;
     @FXML
-    public ChoiceBox <String> courseType;
+    public ChoiceBox<String> courseType;
     @FXML
-    public ChoiceBox <String> courseLevel;
+    public ChoiceBox<String> courseLevel;
     @FXML
     public TextArea methods;
     @FXML
@@ -67,15 +68,15 @@ public  class CreateSyllabusController implements PageController,Initializable {
     @FXML
     public TextArea courseDescription;
     @FXML
-    public Pane CoreCoursesCheck;
+    public CheckBox CoreCoursesCheck;
     @FXML
-    public Pane MajorAreaCoursesCheck;
+    public CheckBox  MajorAreaCoursesCheck;
     @FXML
-    public Pane SupportiveCoursesCheck;
+    public CheckBox  SupportiveCoursesCheck;
     @FXML
-    public Pane MediaManagmSkillsCheck;
+    public CheckBox  MediaManagmSkillsCheck;
     @FXML
-    public Pane TransferableSkillCoursesCheck;
+    public CheckBox  TransferableSkillCoursesCheck;
     @FXML
     public TextArea subject1;
     @FXML
@@ -661,12 +662,7 @@ public  class CreateSyllabusController implements PageController,Initializable {
     private String[] CourseLevel = {"Short Cycle", "First Cycle", "Second Cycle", "Third Cycle"};
 
     @Override
-    public void setPrimaryStage(Stage primaryStage) {
-        this.primaryStage = primaryStage;
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL arg0, ResourceBundle arg1){
 
         semester.getItems().addAll(Semester);
         courseLanguage.getItems().addAll(CourseLanguage);
@@ -675,6 +671,10 @@ public  class CreateSyllabusController implements PageController,Initializable {
 
     }
 
+    @Override
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 
     @FXML
     public void cancelButton (ActionEvent event) {
@@ -683,110 +683,8 @@ public  class CreateSyllabusController implements PageController,Initializable {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
     @FXML
-    public void saveSyllabus(ActionEvent event) {
+    public void saveSyllabus(ActionEvent event) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException {
 
         // Database connection
         Database db = new Database();
@@ -794,36 +692,237 @@ public  class CreateSyllabusController implements PageController,Initializable {
             db.connect();
         }
 
-        //Create a new course
+        //Create a new course and insert database
         CourseRepo courseRepo = new CourseRepo();
         Course newCourse = courseRepo.createCourse(courseName.getText(), courseID.getText(), db);
 
-        
-
-
         // First syllabus version create
-
         // General Info create
-        GeneralInfo generalInfo = new GeneralInfo(courseID.getText(), semester.getValue(), Integer.parseInt(theoryHours.getText()), Integer.parseInt(applicationHours.getText()), Integer.parseInt(localCredits.getText()), Integer.parseInt(ects.getText()), prereqs.getText(),courseLanguage.getValue(), courseType.getValue(),courseLevel.getValue(), methods.getText(), coordinator.getText(), null, null, null, null, null, null)
+        // Lecturer ArrayList
+        String[] lecturerNames = this.lecturers.getText().split("[,\\s]+");
+        ArrayList<String> lecturers = new ArrayList<>();
+        lecturers.addAll(Arrays.asList(lecturerNames));
+
+        // Assistants ArrayList
+        String[] assistantNames = this.lecturers.getText().split("[,\\s]+");
+        ArrayList<String> assistants = new ArrayList<>();
+        assistants.addAll(Arrays.asList(assistantNames));
+
+        //Learining Outcomes ArrayList
+        String[] learningOutcomeLines = this.lecturers.getText().split("\n");
+        ArrayList<String> learningOutcomes = new ArrayList<>();
+        learningOutcomes.addAll(Arrays.asList(learningOutcomeLines));
+
+        //Course Category
+        CourseCategory courseCategory = null;
+        if(CoreCoursesCheck.isSelected()){
+            courseCategory = CourseCategory.Core;
+        }
+        else if(MajorAreaCoursesCheck.isSelected()){
+            courseCategory = CourseCategory.MajorArea;
+        }
+        else if(SupportiveCoursesCheck.isSelected()){
+            courseCategory = CourseCategory.Supportive;
+        }
+        else if(MediaManagmSkillsCheck.isSelected()){
+            courseCategory = CourseCategory.CommAndManagement;
+        }
+        else if(TransferableSkillCoursesCheck.isSelected()){
+            courseCategory = CourseCategory.Transferable;
+        }
+
+
+        GeneralInfo generalInfo = new GeneralInfo(courseID.getText(), semester.getValue().toString(), Integer.parseInt(theoryHours.getText()), Integer.parseInt(applicationHours.getText()), Integer.parseInt(localCredits.getText()), Integer.parseInt(ects.getText()), prereqs.getText(),courseLanguage.getValue().toString(), courseType.getValue().toString(),courseLevel.getValue().toString(), methods.getText(), coordinator.getText(), lecturers, assistants, objectives.getText(), learningOutcomes, courseDescription.getText(),courseCategory);
         
-        // 
-        WeeklySubjects weeklySubjects = new WeeklySubjects(null, null, null);
-        Assesment assesment = new Assesment(null, 0, 0, 0, courseID);
-        OutcomeMatrix outcomeMatrix = new OutcomeMatrix(null, null);
+        // Weekly Subjects create
+
+        // WeeklyPlan
+        ArrayList<String> subjects = new ArrayList<>();
+        for(int i=1;i<=16;i++){
+            TextArea subject = (TextArea) getClass().getDeclaredField("subject" + i).get(this);
+            subjects.add(subject.getText());
+        }
+        ArrayList<String> suggesteds = new ArrayList<>();
+        for(int j=1;j<=16;j++){
+            TextArea prep = (TextArea) getClass().getDeclaredField("prep" + j).get(this);
+            suggesteds.add(prep.getText());
+        }
+
+        HashMap<String,String> weeklyPlan = new HashMap<>();
+        for(int k=0; k<subjects.size();k++){
+            weeklyPlan.put(subjects.get(k), suggesteds.get(k));
+        }
+
+        // Textbooks and Suggested Readings
+
+        String[] textbookNames = CourseNotes.getText().split("\n");
+        ArrayList<String> textbooks = new ArrayList<>();
+        textbooks.addAll(Arrays.asList(textbookNames));
+
+        String[] suggestedReadingNames = CourseNotes.getText().split("\n");
+        ArrayList<String> suggestedReadings= new ArrayList<>();
+        suggestedReadings.addAll(Arrays.asList(suggestedReadingNames));
+
+        WeeklySubjects weeklySubjects = new WeeklySubjects(weeklyPlan, textbooks, suggestedReadings);
+
+        // Assesments create
+
+        // Assesments null check
+
+        ArrayList<Activity> activities = new ArrayList<>();
+        ArrayList<String> learningOutcomeCodes = new ArrayList<>();
+ 
+        if(!participationNum.getText().isEmpty()){
+            activities.add(new Activity("Participation", Integer.parseInt(participationNum.getText()),Integer.parseInt(participationWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("participation",1));
+        }
+        else if(!labNum.getText().isEmpty()){
+            activities.add(new Activity("Lab", Integer.parseInt(labNum.getText()),Integer.parseInt(labWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("lab",2));
+        } 
+        else if(!fieldWorkNum.getText().isEmpty()){
+            activities.add(new Activity("Field", Integer.parseInt(fieldWorkNum.getText()),Integer.parseInt(fieldWorkWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("fwork",3));
+        }
+        else if(!quizNum.getText().isEmpty()){
+            activities.add(new Activity("Quiz", Integer.parseInt(quizNum.getText()),Integer.parseInt(quizWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("quiz",4));
+        }
+        else if(!portfolioNum.getText().isEmpty()){
+            activities.add(new Activity("Portfolio", Integer.parseInt(portfolioNum.getText()),Integer.parseInt(portfolioWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("portfolio",5));
+        }
+        else if(!hwNum.getText().isEmpty()){
+            activities.add(new Activity("Homework", Integer.parseInt(hwNum.getText()),Integer.parseInt(hwWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("hw",6));
+        }
+        else if(!presentationNum.getText().isEmpty()){
+            activities.add(new Activity("Presentation", Integer.parseInt(presentationNum.getText()),Integer.parseInt(presentationWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("presentation",7));
+        }
+        else if(!projectNum.getText().isEmpty()){
+            activities.add(new Activity("Project", Integer.parseInt(projectNum.getText()),Integer.parseInt(projectWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("project",8));
+        }
+        else if(!seminarNum.getText().isEmpty()){
+            activities.add(new Activity("Seminar", Integer.parseInt(seminarNum.getText()),Integer.parseInt(seminarWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("seminar",9));
+        }
+        else if(!oralExamNum.getText().isEmpty()){
+            activities.add(new Activity("Oral", Integer.parseInt(oralExamNum.getText()),Integer.parseInt(oralExamWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("oral",10));
+        }
+        else if(!midtermNum.getText().isEmpty()){
+            activities.add(new Activity("MidTerm", Integer.parseInt(midtermNum.getText()),Integer.parseInt(midtermWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("midterm",11));
+        }
+        else if(!finalNum.getText().isEmpty()){
+            activities.add(new Activity("Final", Integer.parseInt(finalNum.getText()),Integer.parseInt(finalWeight.getText())));
+            learningOutcomeCodes.add(getLearningOutcomeCode("final",12));
+        }
+
+        Assesment assesment = new Assesment(activities, activities.size(), 100, 0,learningOutcomeCodes);
+
+        // Outcome Matrix create
+        ArrayList<String> programOutcomes = new ArrayList<>();
+        for(int i=1;i<=13;i++){
+            TextArea programOutcome = (TextArea) getClass().getDeclaredField("programOutcomeText" + i).get(this);
+            programOutcomes.add(programOutcome.getText());
+        }
+
+        ArrayList<String> contLearningOutcomes = new ArrayList<>();
+        ArrayList<Integer> contributionLevels = new ArrayList<>();
+
+        for(int i=1;i<=13;i++){
+            TextArea contLearningOutcome = (TextArea) getClass().getDeclaredField("contLevel" + i+"_LO").get(this);
+            if(!contLearningOutcome.getText().isEmpty()){
+            contLearningOutcomes.add(contLearningOutcome.getText()+"#"+i);
+            for(int j=1;j<=5;j++){
+                CheckBox contLevelBox = (CheckBox) getClass().getDeclaredField("contLevel" + i+"_"+j).get(this);
+                if(contLevelBox.isSelected()){
+                    contributionLevels.add(j);
+                }
+            }
+        }
+        }
+
+        HashMap<Integer,String> contributionLevelMatrix = new HashMap<>();
+
+        for(int i=0;i<contLearningOutcomes.size();i++){
+            contributionLevelMatrix.put(contributionLevels.get(i), contLearningOutcomes.get(i));
+        }
+
+        OutcomeMatrix outcomeMatrix = new OutcomeMatrix(programOutcomes, contributionLevelMatrix);
+
+        // Works create
+
         ArrayList<Work> works = new ArrayList<>();
+        
+        if(!TheoreticalCourseHoursNum_.getText().isEmpty()){
+            works.add(new Work("CourseHours", Integer.parseInt(TheoreticalCourseHoursNum_.getText()), Integer.parseInt(TheoreticalCourseHoursDuration_.getText()),Integer.parseInt(TheoreticalCourseHoursWorkload_.getText())));
+        }
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Lab", Integer.parseInt(labNum_.getText()),Integer.parseInt(labDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("StudyHours", Integer.parseInt(StudyHoursNum_.getText()),Integer.parseInt(StudyHoursDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("FieldWork", Integer.parseInt(FieldWorkNum_.getText()),Integer.parseInt(FieldWorkDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
+        }
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Quiz", Integer.parseInt(QuizNum_.getText()),Integer.parseInt(QuizDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Homework", Integer.parseInt(HwNum_.getText()),Integer.parseInt(HwDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Presentation", Integer.parseInt(PresentationNum_.getText()),Integer.parseInt(PresentationDuration_.getText()),Integer.parseInt(PresentationWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Project", Integer.parseInt(ProjectNum_.getText()),Integer.parseInt(ProjectDuration_.getText()),Integer.parseInt(ProjectWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Seminar", Integer.parseInt(SeminarNum_.getText()),Integer.parseInt(SeminarDuration_.getText()),Integer.parseInt(SeminarWorkload_.getText())));
+        } 
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Oral", Integer.parseInt(OralExamNum_.getText()),Integer.parseInt(OralExamDuration_.getText()),Integer.parseInt(OralExamWorkload_.getText())));
+        }
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Midterm", Integer.parseInt(MidtermNum_.getText()),Integer.parseInt(MidtermDuration_.getText()),Integer.parseInt(MidtermWorkload_.getText())));
+        }
+        else if(!labNum_.getText().isEmpty()){
+            works.add(new Work("Final", Integer.parseInt(FinalExamNum_.getText()),Integer.parseInt(FinalExamDuration_.getText()),Integer.parseInt(FinalExamWorkload_.getText())));
+        }   
+        
 
-     
-        Syllabus newSyllabus = new Syllabus(getSyllabusID(syllabi.size()),generalInfo,weeklySubjects,assesment,outcomeMatrix,works);
-        syllabi.add(newSyllabus);
+        String syllabusID = newCourse.getSyllabusID(newCourse.getSyllabi().size()+1);
+        Syllabus newSyllabus = new Syllabus(syllabusID,generalInfo,weeklySubjects,assesment,outcomeMatrix,works);
+        newCourse.getSyllabi().add(newSyllabus);
 
+        // Insert syllabus to database
+        newSyllabus.insertSyllabus(db);
 
+        // Go to courses page
+        PageLoader.loadPage("/CoursesPage.fxml", primaryStage);
 
+    }
 
-        //PageLoader.showAnotherPage("/SavingScreen.fxml");
+    private String getLearningOutcomeCode(String activityName,int ID) throws IllegalArgumentException, IllegalAccessException, NoSuchFieldException, SecurityException{
+
+        StringBuilder learningOutcomeRelation = new StringBuilder();
+        learningOutcomeRelation.append(ID);
+        
+        for(int i=1;i<=7;i++){
+            TextField learningOutcomeChoice = (TextField) getClass().getDeclaredField(activityName+"_LO"+ i).get(this);
+            learningOutcomeRelation.append(learningOutcomeChoice.getText());
+        }
+
+        return learningOutcomeRelation.toString();
+
     }
 
     
-
 
 
 }

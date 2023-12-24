@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.CreateSyllabusController">
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.CreateSyllabusController">
    <content>
       <AnchorPane layoutX="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="5750.0" prefWidth="731.0">
          <children>
@@ -255,7 +268,7 @@
                   <Separator orientation="VERTICAL" prefHeight="40.0" visible="false" />
                   <HBox prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <TextField alignment="CENTER" prefHeight="200.0" prefWidth="150.0" text="Course Category">
+                        <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="150.0" text="Course Category">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -295,9 +308,9 @@
                         </HBox>
                         <VBox prefHeight="200.0" prefWidth="70.0">
                            <children>
-                              <Pane fx:id="CoreCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                              <Pane prefHeight="40.0" prefWidth="200.0">
                                  <children>
-                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="CoreCoursesCheck" layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -306,24 +319,24 @@
                                     <Insets bottom="20.0" right="35.0" top="20.0" />
                                  </padding>
                               </Pane>
-                              <Pane fx:id="MajorAreaCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                              <Pane prefHeight="40.0" prefWidth="200.0">
                                  <children>
-                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="MajorAreaCoursesCheck" layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="SupportiveCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                              <Pane prefHeight="40.0" prefWidth="200.0">
                                  <children>
-                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="SupportiveCoursesCheck" layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="MediaManagmSkillsCheck" prefHeight="40.0" prefWidth="200.0">
+                              <Pane prefHeight="40.0" prefWidth="200.0">
                                  <children>
-                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="MediaManagmentSkillsCheck" layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
-                              <Pane fx:id="TransferableSkillCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                              <Pane prefHeight="40.0" prefWidth="200.0">
                                  <children>
-                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="TransferableSkillCoursesCheck" layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
                            </children>
@@ -540,7 +553,7 @@
                      <children>
                         <HBox prefHeight="100.0" prefWidth="626.0">
                            <children>
-                              <TextArea editable="false" prefHeight="100.0" prefWidth="350.0" text="Course &#10;Notes">
+                              <TextArea editable="false" prefHeight="100.0" prefWidth="350.0" text="Course  Notes &#10;Textbooks">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -625,7 +638,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Participation">
+                              <TextField fx:id="activity1" editable="false" prefHeight="40.0" prefWidth="220.0" text="Participation">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -651,7 +664,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Laboratory / Application">
+                              <TextField fx:id="activity2" editable="false" prefHeight="40.0" prefWidth="220.0" text="Laboratory / Application">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -677,7 +690,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Field Work">
+                              <TextField fx:id="activity3" editable="false" prefHeight="40.0" prefWidth="220.0" text="Field Work">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -703,7 +716,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Quizzes / Studio Critiques">
+                              <TextField fx:id="activity4" editable="false" prefHeight="40.0" prefWidth="220.0" text="Quizzes / Studio Critiques">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -729,7 +742,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Portfolio">
+                              <TextField fx:id="activity5" editable="false" prefHeight="40.0" prefWidth="220.0" text="Portfolio">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -755,7 +768,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Homework / Assignments">
+                              <TextField fx:id="activity6" editable="false" prefHeight="40.0" prefWidth="220.0" text="Homework / Assignments">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -781,7 +794,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Presentation / Jury">
+                              <TextField fx:id="activity7" editable="false" prefHeight="40.0" prefWidth="220.0" text="Presentation / Jury">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -807,7 +820,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Project">
+                              <TextField fx:id="activity8" editable="false" prefHeight="40.0" prefWidth="220.0" text="Project">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -833,7 +846,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Seminar / Workshop">
+                              <TextField fx:id="activity1" editable="false" prefHeight="40.0" prefWidth="220.0" text="Seminar / Workshop">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -859,7 +872,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Oral Exams">
+                              <TextField fx:id="activity10" editable="false" prefHeight="40.0" prefWidth="220.0" text="Oral Exams">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -885,7 +898,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Midterm">
+                              <TextField fx:id="activity11" editable="false" prefHeight="40.0" prefWidth="220.0" text="Midterm">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -911,7 +924,7 @@
                         </HBox>
                         <HBox prefHeight="40.0" prefWidth="200.0">
                            <children>
-                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Final Exam">
+                              <TextField fx:id="activity12" editable="false" prefHeight="40.0" prefWidth="220.0" text="Final Exam">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -1903,12 +1916,12 @@
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="40.0">
                                  <children>
-                                    <CheckBox fx:id="contLevel13_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="contLevel13_2" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="40.0">
                                  <children>
-                                    <CheckBox fx:id="contLevel13_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                    <CheckBox fx:id="contLevel13_3" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
                                  </children>
                               </Pane>
                               <Pane prefHeight="200.0" prefWidth="40.0">
