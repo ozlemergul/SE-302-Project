@@ -116,6 +116,41 @@ public class Database {
 
         return rowData;
     }
+
+    public Map<String, String> fetchLatestRow(Database db, String tableName) {
+        Map<String, String> rowData = new HashMap<>();
+
+        try {
+            if (db.getConnection() == null || db.getConnection().isClosed()) {
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String query = "SELECT * FROM " + tableName + " ORDER BY " + "id" + " DESC LIMIT 1";
+        try (Connection conn = db.getConnection();
+             PreparedStatement preparedStatement = conn.prepareStatement(query);
+             ResultSet rs = preparedStatement.executeQuery()) {
+
+            ResultSetMetaData metaData = rs.getMetaData();
+            int numColumns = metaData.getColumnCount();
+
+            if (rs.next()) {
+                for (int i = 1; i <= numColumns; i++) {
+                    String columnName = metaData.getColumnName(i);
+                    String columnValue = rs.getString(i);
+                    rowData.put(columnName, columnValue);
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return rowData;
+    }
+    
     
     public void deleteColumnData(int id, String columnName, String tableName) {
                             try {

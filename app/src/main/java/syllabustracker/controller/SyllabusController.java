@@ -9,10 +9,18 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import java.util.Map;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import org.checkerframework.checker.units.qual.s;
 
 public class SyllabusController implements PageController, Initializable {
 
@@ -646,11 +654,35 @@ public class SyllabusController implements PageController, Initializable {
     private String[] CourseLanguage = {"English", "Turkish", "Second Foreign Language"};
     private String[] CourseType = {"Required", "Elective"};
     private String[] CourseLevel = {"Short Cycle", "First Cycle", "Second Cycle", "Third Cycle"};
+    private String courseIDFromTop;
 
     @Override
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
@@ -659,7 +691,8 @@ public class SyllabusController implements PageController, Initializable {
         courseLanguage.getItems().addAll(CourseLanguage);
         courseType.getItems().addAll(CourseType);
         courseLevel.getItems().addAll(CourseLevel);
-
+        initData(courseIDFromTop);
+        
     }
 
     @FXML
@@ -680,5 +713,62 @@ public class SyllabusController implements PageController, Initializable {
 
     }
 
+    public void initData(String courseCode) {
+        courseIDFromTop = courseCode;
+        courseID.setText(courseIDFromTop);
 
+        // Database connection
+
+        Database db = new Database();
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        String syllabusID = getSyllabusIDFromDatabase(db, courseCode);
+        System.out.println(syllabusID);
+
+        // General Info Fetch
+
+        courseName.setText(db.fetchRow(db, "course", "code", courseCode).get("course_name"));
+        
+        db.fetchRow(db, "general_info", "syllabus_id",courseCode+"V"+1);
+
+
+        
+    }
+
+    private String getSyllabusIDFromDatabase(Database db,String courseID){
+
+        String query = "SELECT syllabus_id FROM general_info WHERE syllabus_id LIKE "+"\""+courseID+"%"+"\""+" ORDER BY syllabus_id DESC LIMIT 1;";
+
+        try (
+            // Establishing a connection to the database
+            Connection connection = db.getConnection();
+            
+            // Creating a prepared statement with the SQL query
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+            // Executing the query and getting the result set
+            ResultSet resultSet = preparedStatement.executeQuery()
+        ) {
+            // Processing the result set
+            while (resultSet.next()) {
+                String syllabusId = resultSet.getString("syllabus_id");
+                return syllabusId;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        db.close();
+        return null;
+    
+    }
 }
+
+    
+

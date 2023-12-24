@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import syllabustracker.MainApp;
 import syllabustracker.controller.PageController;
+import syllabustracker.controller.SyllabusController;
 import syllabustracker.model.Course;
 
 import java.io.IOException;
@@ -44,6 +45,36 @@ public class PageLoader {
         }
     }
 
+    public static void loadPage(String fxmlFileName, Stage primaryStage,String courseID){
+
+        try{
+            // Set Scene
+            FXMLLoader loader = new FXMLLoader(MainApp.class.getResource(fxmlFileName));
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            if (primaryStage.getScene() != null) {
+                sceneStack.push(primaryStage.getScene());
+            }
+
+            primaryStage.setScene(scene);
+
+            // Set Controller
+            PageController controller = loader.getController();
+            controller.setPrimaryStage(primaryStage);
+
+            SyllabusController syllabusController = loader.getController();
+
+            syllabusController.initData(courseID);
+
+            // Show Page
+            primaryStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void loadSyllabusPage(Stage primaryStage, Course course){
 
         String courseCode = course.getCourseID();
@@ -73,13 +104,6 @@ public class PageLoader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private void takeSyllabusComponents(Database db,String courseCode,String syllabusID){
-
-        
-
-
     }
 
 
@@ -121,6 +145,8 @@ public class PageLoader {
             primaryStage.setScene(previousScene);
         }
     }
+
+    
 
 
 

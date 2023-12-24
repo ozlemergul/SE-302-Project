@@ -1,6 +1,7 @@
 package syllabustracker.controller;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -27,28 +28,38 @@ public class CoursesPageController implements PageController,Initializable{
 
         // Database connection
         Database db = new Database();
-        if(db.getConnection() == null){
-            db.connect();
+
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
         // Showing course list with buttons
         CourseRepo courseRepo = new CourseRepo();
         courseRepo.readCourseIDs(db);
 
-        for (String courseName : courseRepo.getCourseIDs()) {
-            Button button = new Button(courseName);
+        for (String courseID : courseRepo.getCourseIDs()) {
+            Button button = new Button(courseID);
             button.setMaxWidth(Double.MAX_VALUE);
             button.setPrefHeight(60);
             button.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    PageLoader.loadPage("", primaryStage);
+
+                    openSyllabusPage(courseID);
                 }
 
             });
             coursesBox.getChildren().add(button);
         }
 
+    }
+
+    private void openSyllabusPage(String courseID) {
+        PageLoader.loadPage("/Syllabus.fxml", primaryStage, courseID);
     }
 
     @Override
