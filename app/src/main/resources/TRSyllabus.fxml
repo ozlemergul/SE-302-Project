@@ -1,0 +1,1983 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="771.0" prefWidth="757.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="syllabustracker.controller.TRSyllabusController">
+   <content>
+      <AnchorPane layoutX="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="6000.0" prefWidth="731.0">
+         <children>
+            <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="745.0">
+               <menus>
+                  <Menu mnemonicParsing="false" text="File">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Import" />
+                        <MenuItem mnemonicParsing="false" text="Export" />
+                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Save As..." />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Edit">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Options">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Edit Syllabus" />
+                        <MenuItem mnemonicParsing="false" text="Compare Syllabuses" />
+                        <MenuItem mnemonicParsing="false" text="View Old Versions" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Help">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+            <VBox layoutX="62.0" layoutY="72.0" prefHeight="6000.0" prefWidth="626.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="43.0" prefWidth="626.0">
+                     <children>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#aboutSyllabusButton" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Syllabus Hakkında" textAlignment="CENTER" />
+                        <Separator prefWidth="25.0" visible="false" />
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Syllabus Düzenleme" textAlignment="CENTER" />
+                        <Separator prefWidth="25.0" visible="false" />
+                        <Button fx:id="compareButton" alignment="CENTER" mnemonicParsing="false" onAction="#compareButton" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Syllabus Karşılaştırma" textAlignment="CENTER" />
+                        <Separator prefWidth="25.0" visible="false" />
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#oldVersionsButton" prefHeight="30.0" prefWidth="150.0" style="-fx-border-color: gray; -fx-border-radius: 20; -fx-background-radius: 20;" text="Eski Versiyonlar" textAlignment="CENTER" />
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="25.0" visible="false" />
+                  <HBox prefHeight="54.0" prefWidth="626.0">
+                     <children>
+                        <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="457.0" text="Dersin Adı">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="courseName" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="573.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="25.0" visible="false" />
+                  <VBox prefHeight="99.0" prefWidth="626.0">
+                     <children>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="95.0" text="Kodu">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="95.0" text="Dönem">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefColumnCount="2" prefHeight="54.0" prefWidth="125.0" text="Teori">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="125.0" text="Uygulama/Lab">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="113.0" text="Yerel Kredi">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="70.0" text="AKTS">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="45.0" prefWidth="626.0">
+                           <children>
+                              <TextField fx:id="courseID" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="95.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox fx:id="semester" disable="true" prefHeight="54.0" prefWidth="95.0" />
+                              <TextField fx:id="theoryHours" alignment="CENTER" editable="false" prefColumnCount="2" prefHeight="54.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="applicationHours" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="localCredits" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="113.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="ects" alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="70.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
+                  <VBox prefHeight="450.0" prefWidth="626.0">
+                     <children>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Ön-koşul(lar)">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="prereqs" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Dersin Dili">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox fx:id="courseLanguage" disable="true" prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Dersin Türü">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox fx:id="courseType" disable="true" prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Dersin Düzeyi">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox fx:id="courseLevel" disable="true" prefHeight="273.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="65.0" prefWidth="626.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="65.0" prefWidth="350.0" style="-fx-background-color: white; -fx-border-color: silver; -fx-border-radius: 3;">
+                                 <children>
+                                    <Text fill="#000000df" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="Dersin Veriliş Şekli" textAlignment="CENTER" wrappingWidth="197.33673095703125">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <TextArea fx:id="methods" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Dersin Koordinatörü">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="coordinator" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Öğretim Eleman(lar)ı">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="lecturers" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="54.0" prefWidth="626.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="54.0" prefWidth="350.0" text="Yardımcı(lar)ı">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="assistants" editable="false" prefHeight="200.0" prefWidth="573.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="25.0" visible="false" />
+                  <HBox prefHeight="120.0" prefWidth="626.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Dersin Amacı">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea fx:id="objectives" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="626.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Öğretim Çıktıları">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea fx:id="learningOutcomes" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="120.0" prefWidth="626.0">
+                     <children>
+                        <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Ders Tanımı">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextArea>
+                        <TextArea fx:id="courseDescription" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </TextArea>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="40.0" visible="false" />
+                  <HBox prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TextField alignment="CENTER" prefHeight="200.0" prefWidth="150.0" text="Dersin Kategorisi">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </TextField>
+                        <HBox prefHeight="200.0" prefWidth="430.0">
+                           <children>
+                              <VBox prefHeight="200.0" prefWidth="430.0">
+                                 <children>
+                                    <TextField editable="false" maxHeight="40.0" minHeight="40.0" text="Temel Ders">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField editable="false" maxHeight="40.0" minHeight="40.0" text="Uzmanlık/Alan Dersi">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField editable="false" maxHeight="40.0" minHeight="40.0" text="Destek Dersi">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField editable="false" maxHeight="40.0" minHeight="40.0" text="İletişim ve Yönetim Becerileri Dersi">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <TextField editable="false" maxHeight="40.0" minHeight="40.0" text="Aktarılabilir Beceri Dersi">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <VBox prefHeight="200.0" prefWidth="70.0">
+                           <children>
+                              <Pane fx:id="CoreCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="20.0" right="35.0" top="20.0" />
+                                 </padding>
+                              </Pane>
+                              <Pane fx:id="MajorAreaCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="SupportiveCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="MediaManagmSkillsCheck" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="TransferableSkillCoursesCheck" prefHeight="40.0" prefWidth="200.0">
+                                 <children>
+                                    <CheckBox layoutX="23.0" layoutY="12.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="726.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HAFTALIK KONULAR VE İLGİLİ ÖN HAZIRLIK ÇALIŞMALARI" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="200.0" prefWidth="60.0" text="Hafta">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="376.0" text="Konular">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="50.0" prefWidth="200.0" text="Ön Hazırlık">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject1" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep1" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject2" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep2" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject3" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep3" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="4">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject4" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep4" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject5" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep5" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="6">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject6" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep6" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="7">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject7" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep7" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="8">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject8" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep8" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="9">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject9" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep9" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="10">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject10" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep10" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="11">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject11" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep11" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="12">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject12" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep12" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="13">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject13" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep13" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="14">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject14" editable="false" prefHeight="200.0" prefWidth="376.0" />
+                              <TextArea fx:id="prep14" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="15">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject15" editable="false" prefHeight="200.0" prefWidth="376.0" text="Dersin gözden geçirilmesi" />
+                              <TextArea fx:id="prep15" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="60.0" text="16">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="subject16" editable="false" prefHeight="200.0" prefWidth="376.0" text="Final Sınavı" />
+                              <TextArea fx:id="prep16" editable="false" prefHeight="200.0" prefWidth="200.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
+                  <VBox prefHeight="230.0" prefWidth="626.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="626.0">
+                           <children>
+                              <TextArea editable="false" prefHeight="100.0" prefWidth="350.0" text="Ders Kitabı">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextArea>
+                              <TextArea fx:id="CourseNotes" editable="false" prefHeight="150.0" prefWidth="573.0" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="120.0" prefWidth="626.0">
+                           <children>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="350.0" text="Önerilen Okumalar / &#10;Materyaller">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextArea>
+                              <TextArea fx:id="SuggestedMaterials" editable="false" prefHeight="200.0" prefWidth="573.0" wrapText="true">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </TextArea>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="740.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DEĞERLENDİRME ÖLÇÜTLERİ" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Yarıyıl Aktiviteleri">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="110.0" text="Sayı">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="125.0" text="Katkı Payı">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO1">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO2">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO3">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO4">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO5">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO6">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="70.0" text="LO7">
+                                 <font>
+                                    <Font name="System Bold" size="12.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Katılım">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="participationNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="participationWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="participation_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="participation_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Laboratuvar / Uygulama">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="labNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="labWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="lab_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="lab_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Arazi Çalışması">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="fieldWorkNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="fieldWorkWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="fwork_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="fwork_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Küçük Sınav/Stüdyo Kritiği">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="quizNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="quizWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="quiz_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="quiz_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Portfolyo">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="portfolioNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="portfolioWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="portfolio_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="portfolio_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Ödev">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="hwNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="hwWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="hw_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="hw_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Sunum/Jüri Önünde Sunum">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="presentationNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="presentationWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="presentation_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="presentation_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Proje">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="projectNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="projectWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="project_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="project_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Seminer / Çalıştay">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="seminarNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="seminarWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="seminar_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="seminar_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Sözlü Sınav">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="oralExamNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="oralExamWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="oralExam_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="oralExam_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Ara Sınav">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="midtermNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="midtermWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="midterm_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="midterm_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="220.0" text="Final Sınavı">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="finalNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="finalWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="final_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="final_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="220.0" text="Toplam">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="totalNum" editable="false" prefHeight="40.0" prefWidth="110.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="totalWeight" editable="false" prefHeight="40.0" prefWidth="125.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="total_LO1" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO2" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO3" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO4" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO5" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO6" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                              <TextField fx:id="total_LO7" editable="false" prefHeight="40.0" prefWidth="70.0" />
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="30.0" visible="false" />
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Yarıyıl İçi Aktivitelerin Başarı Notuna Katkısı">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FGWeightSem_area1" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FGWeightSem_area2" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Yarıyıl Sonu Aktivitelerin Başarı Notuna Katkısı ">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FGWeightEndSem_area1" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FGWeightEndSem_area2" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="386.0" text="Toplam">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="total_area1" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="total_area2" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="636.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="AKTS / İŞ YÜKÜ TABLOSU" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Yarıyıl Aktiviteleri">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="120.0" text="Sayı">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="120.0" text="Süre">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" editable="false" prefHeight="40.0" prefWidth="120.0" text="İş Yükü">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Teorik Ders Saati">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="TheoreticalCourseHoursNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="TheoreticalCourseHoursDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="TheoreticalCourseHoursWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Laboratuvar / Uygulama Ders Saati">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="labNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="labDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="labWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Sınıf Dışı Ders Çalışması">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="StudyHoursNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="StudyHoursDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="StudyHoursWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Arazi Çalışması">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FieldWorkNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FieldWorkDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FieldWorkWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Küçük Sınav / Stüdyo Kritiği">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="QuizNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="QuizDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="QuizWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Portfolyo">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="PortfolioNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="PortfolioDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="PortfolioWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Ödev">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="HwNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="HwDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="HwWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Sunum / Jüri Önünde Sunum">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="PresentationNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="PresentationDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="PresentationWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Proje">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="ProjectNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="ProjectDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="ProjectWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Seminer / Çalıştay">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="SeminarNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="SeminarDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="SeminarWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Sözlü Sınav">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="OralExamNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="OralExamDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="OralExamWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Ara Sınav">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="MidtermNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="MidtermDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="MidtermWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="386.0" text="Final Sınavı">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FinalExamNum_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FinalExamDuration_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="FinalExamWorkload_" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="40.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="386.0">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER_RIGHT" editable="false" prefHeight="40.0" prefWidth="120.0" text="Toplam">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="totalSemesterActivity" editable="false" prefHeight="40.0" prefWidth="120.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="50.0" visible="false" />
+                  <VBox prefHeight="1500.0" prefWidth="626.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DERSİN ÖĞRENME ÇIKTILARININ PROGRAM YETERLİLİKLERİ İLE İLİŞKİSİ" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="#">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea editable="false" prefHeight="200.0" prefWidth="375.0" text="Program Yeterlilikleri / Çıktıları&#10;">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextArea>
+                              <VBox prefHeight="200.0" prefWidth="225.0">
+                                 <children>
+                                    <TextArea editable="false" prefHeight="110.0" prefWidth="200.0" text="Katkı Düzeyi">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </TextArea>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="115.0" text="1">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="115.0" text="2">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="115.0" text="3">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="115.0" text="4">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="115.0" text="5">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField alignment="CENTER" editable="false" prefHeight="50.0" prefWidth="130.0" text="LO#">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </TextField>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="1">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText1" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel1_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel1_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel1_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel1_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel1_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel1_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="2">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText2" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel2_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel2_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel2_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel2_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel2_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel2_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="3">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText3" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel3_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel3_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel3_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel3_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel3_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel3_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="4">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText4" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel4_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel4_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel4_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel4_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel4_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel4_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="5">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText5" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel5_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel5_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel5_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel5_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel5_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel5_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="6">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText6" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel6_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel6_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel6_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel6_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel6_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel6_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="7">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText7" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel7_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel7_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel7_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel7_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel7_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel7_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="8">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText8" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel8_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel8_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel8_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel8_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel8_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel8_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="9">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText9" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel9_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel9_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel9_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel9_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel9_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel9_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="10">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText10" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel10_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel10_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel10_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel10_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel10_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel10_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="11">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText11" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel11_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel11_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel11_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel11_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel11_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel11_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="12">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText12" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel12_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel12_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel12_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel12_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel12_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel12_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField alignment="CENTER" editable="false" prefHeight="200.0" prefWidth="40.0" text="13">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </TextField>
+                              <TextArea fx:id="programOutcomeText13" editable="false" prefHeight="200.0" prefWidth="375.0" />
+                              <Pane prefHeight="100.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel13_1" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel13_2" layoutX="11.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel13_3" layoutX="12.0" layoutY="43.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel13_4" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="200.0" prefWidth="40.0">
+                                 <children>
+                                    <CheckBox fx:id="contLevel13_5" layoutX="12.0" layoutY="42.0" mnemonicParsing="false" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="contLevel13_LO" editable="false" prefHeight="200.0" prefWidth="50.0" />
+                           </children>
+                        </HBox>
+                        <Separator orientation="VERTICAL" prefHeight="20.0" visible="false" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="*1 Lowest, 2 Low, 3 Average, 4 High, 5 Highest" textAlignment="RIGHT" wrappingWidth="623.7367477416992">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <Separator orientation="VERTICAL" prefHeight="70.0" visible="false" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
