@@ -695,7 +695,7 @@ public class CreateSyllabusController implements PageController,Initializable{
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         //Create a new course and insert database
         CourseRepo courseRepo = new CourseRepo();
         Course newCourse = courseRepo.createCourse(courseName.getText(), courseID.getText(), db);
@@ -713,7 +713,7 @@ public class CreateSyllabusController implements PageController,Initializable{
         assistants.addAll(Arrays.asList(assistantNames));
 
         //Learining Outcomes ArrayList
-        String[] learningOutcomeLines = this.lecturers.getText().split("\n");
+        String[] learningOutcomeLines = this.learningOutcomes.getText().split("\n");
         ArrayList<String> learningOutcomes = new ArrayList<>();
         learningOutcomes.addAll(Arrays.asList(learningOutcomeLines));
 
@@ -780,47 +780,47 @@ public class CreateSyllabusController implements PageController,Initializable{
             activities.add(new Activity("Participation", Integer.parseInt(participationNum.getText()),Integer.parseInt(participationWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("participation",1));
         }
-        else if(!labNum.getText().isEmpty()){
+        if(!labNum.getText().isEmpty()){
             activities.add(new Activity("Lab", Integer.parseInt(labNum.getText()),Integer.parseInt(labWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("lab",2));
         } 
-        else if(!fieldWorkNum.getText().isEmpty()){
+        if(!fieldWorkNum.getText().isEmpty()){
             activities.add(new Activity("Field", Integer.parseInt(fieldWorkNum.getText()),Integer.parseInt(fieldWorkWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("fwork",3));
         }
-        else if(!quizNum.getText().isEmpty()){
+        if(!quizNum.getText().isEmpty()){
             activities.add(new Activity("Quiz", Integer.parseInt(quizNum.getText()),Integer.parseInt(quizWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("quiz",4));
         }
-        else if(!portfolioNum.getText().isEmpty()){
+        if(!portfolioNum.getText().isEmpty()){
             activities.add(new Activity("Portfolio", Integer.parseInt(portfolioNum.getText()),Integer.parseInt(portfolioWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("portfolio",5));
         }
-        else if(!hwNum.getText().isEmpty()){
+        if(!hwNum.getText().isEmpty()){
             activities.add(new Activity("Homework", Integer.parseInt(hwNum.getText()),Integer.parseInt(hwWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("hw",6));
         }
-        else if(!presentationNum.getText().isEmpty()){
+        if(!presentationNum.getText().isEmpty()){
             activities.add(new Activity("Presentation", Integer.parseInt(presentationNum.getText()),Integer.parseInt(presentationWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("presentation",7));
         }
-        else if(!projectNum.getText().isEmpty()){
+        if(!projectNum.getText().isEmpty()){
             activities.add(new Activity("Project", Integer.parseInt(projectNum.getText()),Integer.parseInt(projectWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("project",8));
         }
-        else if(!seminarNum.getText().isEmpty()){
+        if(!seminarNum.getText().isEmpty()){
             activities.add(new Activity("Seminar", Integer.parseInt(seminarNum.getText()),Integer.parseInt(seminarWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("seminar",9));
         }
-        else if(!oralExamNum.getText().isEmpty()){
+        if(!oralExamNum.getText().isEmpty()){
             activities.add(new Activity("Oral", Integer.parseInt(oralExamNum.getText()),Integer.parseInt(oralExamWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("oral",10));
         }
-        else if(!midtermNum.getText().isEmpty()){
+        if(!midtermNum.getText().isEmpty()){
             activities.add(new Activity("MidTerm", Integer.parseInt(midtermNum.getText()),Integer.parseInt(midtermWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("midterm",11));
         }
-        else if(!finalNum.getText().isEmpty()){
+        if(!finalNum.getText().isEmpty()){
             activities.add(new Activity("Final", Integer.parseInt(finalNum.getText()),Integer.parseInt(finalWeight.getText())));
             learningOutcomeCodes.add(getLearningOutcomeCode("final",12));
         }
@@ -865,37 +865,37 @@ public class CreateSyllabusController implements PageController,Initializable{
         if(!TheoreticalCourseHoursNum_.getText().isEmpty()){
             works.add(new Work("CourseHours", Integer.parseInt(TheoreticalCourseHoursNum_.getText()), Integer.parseInt(TheoreticalCourseHoursDuration_.getText()),Integer.parseInt(TheoreticalCourseHoursWorkload_.getText())));
         }
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Lab", Integer.parseInt(labNum_.getText()),Integer.parseInt(labDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("StudyHours", Integer.parseInt(StudyHoursNum_.getText()),Integer.parseInt(StudyHoursDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("FieldWork", Integer.parseInt(FieldWorkNum_.getText()),Integer.parseInt(FieldWorkDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
         }
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Quiz", Integer.parseInt(QuizNum_.getText()),Integer.parseInt(QuizDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Homework", Integer.parseInt(HwNum_.getText()),Integer.parseInt(HwDuration_.getText()),Integer.parseInt(labWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Presentation", Integer.parseInt(PresentationNum_.getText()),Integer.parseInt(PresentationDuration_.getText()),Integer.parseInt(PresentationWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Project", Integer.parseInt(ProjectNum_.getText()),Integer.parseInt(ProjectDuration_.getText()),Integer.parseInt(ProjectWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Seminar", Integer.parseInt(SeminarNum_.getText()),Integer.parseInt(SeminarDuration_.getText()),Integer.parseInt(SeminarWorkload_.getText())));
         } 
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Oral", Integer.parseInt(OralExamNum_.getText()),Integer.parseInt(OralExamDuration_.getText()),Integer.parseInt(OralExamWorkload_.getText())));
         }
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Midterm", Integer.parseInt(MidtermNum_.getText()),Integer.parseInt(MidtermDuration_.getText()),Integer.parseInt(MidtermWorkload_.getText())));
         }
-        else if(!labNum_.getText().isEmpty()){
+        if(!labNum_.getText().isEmpty()){
             works.add(new Work("Final", Integer.parseInt(FinalExamNum_.getText()),Integer.parseInt(FinalExamDuration_.getText()),Integer.parseInt(FinalExamWorkload_.getText())));
         }   
         
