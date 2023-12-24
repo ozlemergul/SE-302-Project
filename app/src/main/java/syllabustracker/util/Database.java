@@ -117,30 +117,23 @@ public class Database {
         return rowData;
     }
 
-    public Map<String, String> fetchLatestRow(Database db, String tableName) {
-        Map<String, String> rowData = new HashMap<>();
+    public ArrayList<String> fetchColumn(String tableName, String columnName, String conditionColumn, String conditionValue) {
+        ArrayList<String> columnValues = new ArrayList<>();
 
         try {
-            if (db.getConnection() == null || db.getConnection().isClosed()) {
-                db.connect();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+            // Build the SQL query dynamically based on the table name, column name, and condition
+            String query = "SELECT " + columnName + " FROM " + tableName + " WHERE " + conditionColumn + " = ?";
 
-        String query = "SELECT * FROM " + tableName + " ORDER BY " + "id" + " DESC LIMIT 1";
-        try (Connection conn = db.getConnection();
-             PreparedStatement preparedStatement = conn.prepareStatement(query);
-             ResultSet rs = preparedStatement.executeQuery()) {
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                // Set the condition value in the prepared statement
+                preparedStatement.setString(1, conditionValue);
 
-            ResultSetMetaData metaData = rs.getMetaData();
-            int numColumns = metaData.getColumnCount();
-
-            if (rs.next()) {
-                for (int i = 1; i <= numColumns; i++) {
-                    String columnName = metaData.getColumnName(i);
-                    String columnValue = rs.getString(i);
-                    rowData.put(columnName, columnValue);
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    // Process the result set and retrieve values from the specified column
+                    while (resultSet.next()) {
+                        String columnValue = resultSet.getString(columnName);
+                        columnValues.add(columnValue);
+                    }
                 }
             }
 
@@ -148,7 +141,7 @@ public class Database {
             e.printStackTrace();
         }
 
-        return rowData;
+        return columnValues;
     }
     
     

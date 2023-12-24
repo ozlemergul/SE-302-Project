@@ -10,17 +10,27 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.lang.StringBuilder;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import syllabustracker.model.CourseCategory;
 import syllabustracker.util.Database;
 import syllabustracker.util.PageLoader;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.crypto.spec.IvParameterSpec;
+import javax.management.Descriptor;
+
 import org.checkerframework.checker.units.qual.s;
+
+import com.google.common.collect.HashBiMap;
 
 public class SyllabusController implements PageController, Initializable {
 
@@ -61,15 +71,15 @@ public class SyllabusController implements PageController, Initializable {
     @FXML
     public TextArea courseDescription;
     @FXML
-    public Pane CoreCoursesCheck;
+    public CheckBox CoreCoursesCheck;
     @FXML
-    public Pane MajorAreaCoursesCheck;
+    public CheckBox MajorAreaCoursesCheck;
     @FXML
-    public Pane SupportiveCoursesCheck;
+    public CheckBox SupportiveCoursesCheck;
     @FXML
-    public Pane MediaManagmSkillsCheck;
+    public CheckBox MediaManagmSkillsCheck;
     @FXML
-    public Pane TransferableSkillCoursesCheck;
+    public CheckBox TransferableSkillCoursesCheck;
     @FXML
     public TextArea subject1;
     @FXML
@@ -662,28 +672,6 @@ public class SyllabusController implements PageController, Initializable {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1){
 
@@ -735,10 +723,75 @@ public class SyllabusController implements PageController, Initializable {
 
         courseName.setText(db.fetchRow(db, "course", "code", courseCode).get("course_name"));
         
-        db.fetchRow(db, "general_info", "syllabus_id",courseCode+"V"+1);
+        Map<String, String> generalInfoData = new HashMap<>();
+        generalInfoData = db.fetchRow(db, "general_info", "syllabus_id",syllabusID);
+
+        semester.setValue(generalInfoData.get("semester"));
+        theoryHours.setText(generalInfoData.get("theory_hours"));
+        applicationHours.setText(generalInfoData.get("application_hours"));
+        localCredits.setText(generalInfoData.get("local_credits"));
+        ects.setText(generalInfoData.get("ects"));
+        prereqs.setText(generalInfoData.get("prerequisties"));
+        courseLanguage.setValue(generalInfoData.get("language"));
+        courseType.setValue(generalInfoData.get("type"));
+        courseLevel.setValue(generalInfoData.get("level"));
+
+        
+        System.out.println(generalInfoData.get("category"));
+
+        String courseCategoryValue = generalInfoData.get("category");
+        System.out.println(courseCategoryValue);
+
+        /* if(courseCategoryValue.equals("Core")){
+            CoreCoursesCheck.setSelected(true);
+        }
+        else if(courseCategoryValue.equals("MajorArea")){
+            MajorAreaCoursesCheck.setSelected(true);
+        }
+        else if(courseCategoryValue.equals("Supportive")){
+            SupportiveCoursesCheck.setSelected(true);
+        }
+        else if(courseCategoryValue.equals("CommAndManagement")){
+            MediaManagmSkillsCheck.setSelected(true);
+        }
+        else if(courseCategoryValue.equals("Transferable")){
+            TransferableSkillCoursesCheck.setSelected(true);
+        } */
+
+        methods.setText(generalInfoData.get("teaching_methods"));
+        objectives.setText(generalInfoData.get("objectives"));
+        courseDescription.setText(generalInfoData.get("description"));
+
+        //Lecturers
+        HashMap<String,String> instructorsFromDatabase = new HashMap<>();
+        instructorsFromDatabase = getInstructorsFromDatabase(db, courseCode);
+
+        coordinator.setText(instructorsFromDatabase.get("coordinator"));
+        lecturers.setText(instructorsFromDatabase.get("lecturer"));
+        assistants.setText(instructorsFromDatabase.get("assistant"));
+
+        // Learning outcomes
+        ArrayList<String> learningOutcomesList = new ArrayList<>();
+        learningOutcomesList = db.fetchColumn("learning_outcomes", "learning_outcome","syllabus_id",syllabusID);
+        StringBuilder learningOutcomesText = new StringBuilder();
+
+        for (String value : learningOutcomesList) {
+            learningOutcomesText.append(value).append("\n");
+        }
+
+        learningOutcomes.setText(learningOutcomesText.toString());
+
+        
+
+
 
 
         
+
+
+
+
+ 
     }
 
     private String getSyllabusIDFromDatabase(Database db,String courseID){
@@ -763,6 +816,60 @@ public class SyllabusController implements PageController, Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        db.close();
+
+        
+        return null;
+    
+    }
+
+    private HashMap<String,String> getInstructorsFromDatabase(Database db,String courseID){
+
+        String query1 = "SELECT instructor_name FROM instructor WHERE instructor_id LIKE "+"\""+courseID+"%"+"\"";
+        String query2 = "SELECT role FROM instructor WHERE instructor_id LIKE "+"\""+courseID+"%"+"\"";
+
+        ArrayList<String> instructorNames = new ArrayList<>();
+        ArrayList<String> instructorRoles = new ArrayList<>();
+
+        try {
+            if(db.getConnection() == null || db.getConnection().isClosed()){
+                db.connect();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            
+            PreparedStatement preparedStatement1 = db.getConnection().prepareStatement(query1);
+            PreparedStatement preparedStatement2 = db.getConnection().prepareStatement(query2);
+            
+            // Executing the query and getting the result set
+            ResultSet resultSet1 = preparedStatement1.executeQuery();
+            ResultSet resultSet2 = preparedStatement2.executeQuery();
+            HashMap<String,String> instructors = new HashMap<>();
+        
+            // Processing the result set
+            while (resultSet1.next()) {
+                String instructorName = resultSet1.getString("instructor_name");
+                instructorNames.add(instructorName);
+            }
+
+            while (resultSet2.next()) {
+                String role = resultSet2.getString("role");
+                instructorRoles.add(role);
+            }
+
+            for(int i=0;i<instructorRoles.size();i++){
+            instructors.put(instructorRoles.get(i), instructorNames.get(i));
+            } 
+            return instructors;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
 
         db.close();
         return null;
