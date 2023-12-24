@@ -701,6 +701,8 @@ public class SyllabusController implements PageController, Initializable {
 
     }
 
+
+
     public void initData(String courseCode) {
         courseIDFromTop = courseCode;
         courseID.setText(courseIDFromTop);

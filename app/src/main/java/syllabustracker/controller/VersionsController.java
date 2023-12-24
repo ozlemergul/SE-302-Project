@@ -34,6 +34,12 @@ public class VersionsController implements PageController,Initializable{
         
     }
 
+    @FXML
+    private void compareVersionsButton (ActionEvent event) {
+        PageLoader.loadPage("/CompareSyllabus.fxml", primaryStage);
+
+    }
+
 
 
 
