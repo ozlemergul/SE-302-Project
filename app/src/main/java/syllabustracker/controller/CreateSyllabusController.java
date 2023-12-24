@@ -699,12 +699,12 @@ public class CreateSyllabusController implements PageController,Initializable{
         // First syllabus version create
         // General Info create
         // Lecturer ArrayList
-        String[] lecturerNames = this.lecturers.getText().split("[,\\s]+");
+        String[] lecturerNames = this.lecturers.getText().split(",");
         ArrayList<String> lecturers = new ArrayList<>();
         lecturers.addAll(Arrays.asList(lecturerNames));
 
         // Assistants ArrayList
-        String[] assistantNames = this.lecturers.getText().split("[,\\s]+");
+        String[] assistantNames = this.assistants.getText().split(",+");
         ArrayList<String> assistants = new ArrayList<>();
         assistants.addAll(Arrays.asList(assistantNames));
 
