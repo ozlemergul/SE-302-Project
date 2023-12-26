@@ -1,6 +1,4 @@
 # SE-302-Project
-Read Me  
-
 Overview 
 
   SyllabusTracker is an stand-alone desktop application that designed for user to create, view and keep track of the lecture syllabi. SyllabusTracker works on Windows systems and does not need internet connection. 
