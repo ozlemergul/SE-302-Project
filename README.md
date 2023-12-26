@@ -5,13 +5,13 @@ Overview
 
 Features 
 
- --Adding new syllabus 
+- -Adding new syllabus 
 
- --Displaying existing syllabi 
+- -Displaying existing syllabi 
 
- --Editing syllabi and adding notes to edits 
+- -Editing syllabi and adding notes to edits 
 
- --Comparing previous versions of the syllabi 
+- -Comparing previous versions of the syllabi 
 
 - -Import and export files 
 
